@@ -37,7 +37,7 @@ namespace ModuloUsuarios
         //characters
         public void Chars()
         {
-            Characterdisplay chardis = new Characterdisplay();
+            Display chardis = new Display();
             //CREACION DE ARRAYS
             List<String> charray = new List<String>();
             Caller_characters charreader = new Caller_characters();
@@ -63,16 +63,65 @@ namespace ModuloUsuarios
                 String bio = charray[i + 17];
                 Charcard current = new Charcard(name, chrclass, race,
                 lvl, life, energy, xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
-                chardis.cardconstructor(current);
+                chardis.charcardconstructor(current);
                 current.fieldset(current);
             }
 
             chardis.Show();
         }
-        private void cardconstructor(List<String> array, Charcard obj)
+        //creatures
+        public void Creatures()
         {
+            Display creaturedis = new Display();
+            //CREACION DE ARRAYS
+            List<String> crearray = new List<String>();
+            Caller_creatures charreader = new Caller_creatures();
+            //LECTURA DE CRIATURAS
+            crearray = charreader.creatureloader(crearray);
+            //CREACION DE TARJETAS
+            for (int i = 0; i < crearray.Count; i = i + 8)
+            {
+                String name = crearray[i];
+                String lvl = crearray[i + 1];
+                String a_version = "Aversión: " + crearray[i + 2];
+                String life = "Vida: " + crearray[i + 4] + "/" + crearray[i + 3];
+                String bio = ""+ crearray[i + 5];
+                String dmg = "Daño Base: " + crearray[i + 6];
+                String img = crearray[i + 6];
+                Creaturecard current = new Creaturecard(name, lvl, a_version, life, dmg, img, bio, creaturedis);
+                creaturedis.creaturecardconstructor(current);
+                current.fieldset(current);
+            }
 
-            
+            creaturedis.Show();
+        }
+        //items
+        public void Items()
+        {
+            Display itemdis = new Display();
+            //CREACION DE ARRAYS
+            List<String> itemarray = new List<String>();
+            Caller_items itemreader = new Caller_items();
+            //LECTURA DE CRIATURAS
+            itemarray = itemreader.itemloader(itemarray);
+            //CREACION DE TARJETAS
+            for (int i = 0; i < itemarray.Count; i = i + 10)
+            {
+                String type = itemarray[i];
+                String value = itemarray[i + 1]+" gold";
+                String lvl = itemarray[i + 2];
+                String name = itemarray[i+ 3];
+                String space = "("+itemarray[i + 4]+" slots)";
+                String weight = itemarray[i + 5]+"kg";
+                String armor = itemarray[i + 6];
+                String dmg = "Daño: " + itemarray[i + 8]+"("+itemarray[i + 7]+")";
+                String ability = "Habilidades: "+itemarray[i + 9];
+                Itemcard current = new Itemcard(type,value,lvl,name, space,weight,armor,dmg,ability,itemdis);
+                itemdis.itemcardconstructor(current);
+                current.fieldset(current);
+            }
+
+            itemdis.Show();
         }
 
 

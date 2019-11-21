@@ -51,23 +51,29 @@
     <Compile Include="MODEL\Caller_habilities.cs" />
     <Compile Include="MODEL\Caller_characters.cs" />
     <Compile Include="MODEL\Caller_users.cs" />
-    <Compile Include="VIEW\Characterdisplay.cs">
+    <Compile Include="VIEW\Creaturecard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Creaturecard.Designer.cs">
+      <DependentUpon>Creaturecard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Itemcard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Itemcard.Designer.cs">
+      <DependentUpon>Itemcard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Display.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Characterdisplay.Designer.cs">
-      <DependentUpon>Characterdisplay.cs</DependentUpon>
+    <Compile Include="VIEW\Display.Designer.cs">
+      <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLLER\Controller.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONTROLLER\Controller.Designer.cs">
       <DependentUpon>Controller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VIEW\Creaturedisplay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\Creaturedisplay.Designer.cs">
-      <DependentUpon>Creaturedisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\Nexus.cs">
       <SubType>Form</SubType>
@@ -90,14 +96,17 @@
     <Compile Include="VIEW\Charcard.Designer.cs">
       <DependentUpon>Charcard.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VIEW\Characterdisplay.resx">
-      <DependentUpon>Characterdisplay.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\Creaturecard.resx">
+      <DependentUpon>Creaturecard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Itemcard.resx">
+      <DependentUpon>Itemcard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Display.resx">
+      <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROLLER\Controller.resx">
       <DependentUpon>Controller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Creaturedisplay.resx">
-      <DependentUpon>Creaturedisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Nexus.resx">
       <DependentUpon>Nexus.cs</DependentUpon>
@@ -110,6 +119,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VIEW\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -129,6 +139,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_CORE\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\creature.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\character.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\items.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

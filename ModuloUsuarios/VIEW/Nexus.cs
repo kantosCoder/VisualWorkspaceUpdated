@@ -31,5 +31,17 @@ namespace ModuloUsuarios
             Invoker.controller.Login();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Creatures();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Items();
+            this.Close();
+        }
     }
 }

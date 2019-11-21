@@ -27,11 +27,11 @@ namespace ModuloUsuarios
         private String charism = "";
         private String photoloc = "";
         private String biography = "";
-        private Characterdisplay current;
+        private Display current;
 
         public Charcard(String aname, String aclass, String arace,
             String alvl, String alife, String aenergy, String axp, String agold,
-             String aforce, String adexer, String abody, String aintel, String acharism, String photo, String bio, Characterdisplay target)
+             String aforce, String adexer, String abody, String aintel, String acharism, String photo, String bio, Display target)
         {
             
             name = aname;
@@ -55,7 +55,7 @@ namespace ModuloUsuarios
         private void Charcard_Load(object sender, EventArgs e)
         {
             //CARGAR DATOS A DETALLE
-            current.detailload(name,chrclass,race,lvl,life,energy,xp,gold,force,dexer,body,intel,charism,photoloc,biography,current);
+            current.chardetailload(name,chrclass,race,lvl,life,energy,xp,gold,force,dexer,body,intel,charism,photoloc,biography,current);
 
         }
         public void fieldset(Charcard current) {
@@ -72,7 +72,8 @@ namespace ModuloUsuarios
                 current.imagebox.Image = Image.FromFile(photoloc);
             }
             catch (Exception) {
-                current.imagebox.Image = null;
+                var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.character);
+                current.imagebox.Image = replacer;
             }
         }
     }
