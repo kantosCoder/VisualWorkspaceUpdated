@@ -69,6 +69,7 @@
             this.itemlevel.Size = new System.Drawing.Size(25, 20);
             this.itemlevel.TabIndex = 3;
             this.itemlevel.Text = "lvl";
+            this.itemlevel.Click += new System.EventHandler(this.Item_load);
             // 
             // itemweight
             // 
@@ -80,6 +81,7 @@
             this.itemweight.Size = new System.Drawing.Size(48, 17);
             this.itemweight.TabIndex = 4;
             this.itemweight.Text = "weight";
+            this.itemweight.Click += new System.EventHandler(this.Item_load);
             // 
             // itemspace
             // 
@@ -91,6 +93,7 @@
             this.itemspace.Size = new System.Drawing.Size(47, 17);
             this.itemspace.TabIndex = 5;
             this.itemspace.Text = "x slots";
+            this.itemspace.Click += new System.EventHandler(this.Item_load);
             // 
             // itemarmor
             // 
@@ -102,6 +105,7 @@
             this.itemarmor.Size = new System.Drawing.Size(53, 20);
             this.itemarmor.TabIndex = 6;
             this.itemarmor.Text = "armor";
+            this.itemarmor.Click += new System.EventHandler(this.Item_load);
             // 
             // imageList1
             // 
@@ -119,6 +123,7 @@
             this.creatureimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.creatureimage.TabIndex = 8;
             this.creatureimage.TabStop = false;
+            this.creatureimage.Click += new System.EventHandler(this.Item_load);
             // 
             // panel1
             // 
@@ -136,6 +141,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 106);
             this.panel1.TabIndex = 9;
+            this.panel1.Click += new System.EventHandler(this.Item_load);
             // 
             // itemvalue
             // 
@@ -147,6 +153,7 @@
             this.itemvalue.Size = new System.Drawing.Size(53, 20);
             this.itemvalue.TabIndex = 11;
             this.itemvalue.Text = "x gold";
+            this.itemvalue.Click += new System.EventHandler(this.Item_load);
             // 
             // itemdamage
             // 
@@ -158,6 +165,7 @@
             this.itemdamage.Size = new System.Drawing.Size(142, 18);
             this.itemdamage.TabIndex = 10;
             this.itemdamage.Text = "damage: x(typedmg)";
+            this.itemdamage.Click += new System.EventHandler(this.Item_load);
             // 
             // itemtype
             // 
@@ -169,6 +177,7 @@
             this.itemtype.Size = new System.Drawing.Size(72, 20);
             this.itemtype.TabIndex = 10;
             this.itemtype.Text = "itemtype";
+            this.itemtype.Click += new System.EventHandler(this.Item_load);
             // 
             // modify_button
             // 

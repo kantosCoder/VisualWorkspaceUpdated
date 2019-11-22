@@ -89,10 +89,10 @@
             // chardetail_race
             // 
             this.chardetail_race.AutoSize = true;
-            this.chardetail_race.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_race.Location = new System.Drawing.Point(104, 270);
+            this.chardetail_race.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chardetail_race.Location = new System.Drawing.Point(123, 275);
             this.chardetail_race.Name = "chardetail_race";
-            this.chardetail_race.Size = new System.Drawing.Size(63, 26);
+            this.chardetail_race.Size = new System.Drawing.Size(54, 24);
             this.chardetail_race.TabIndex = 16;
             this.chardetail_race.Text = "Race";
             // 
@@ -159,10 +159,10 @@
             // chardetail_class
             // 
             this.chardetail_class.AutoSize = true;
-            this.chardetail_class.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_class.Location = new System.Drawing.Point(196, 270);
+            this.chardetail_class.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chardetail_class.Location = new System.Drawing.Point(213, 275);
             this.chardetail_class.Name = "chardetail_class";
-            this.chardetail_class.Size = new System.Drawing.Size(67, 26);
+            this.chardetail_class.Size = new System.Drawing.Size(55, 24);
             this.chardetail_class.TabIndex = 9;
             this.chardetail_class.Text = "Class";
             // 
@@ -257,7 +257,7 @@
             // back
             // 
             this.back.Location = new System.Drawing.Point(890, 535);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(90, 28);
             this.back.TabIndex = 2;
@@ -268,7 +268,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(796, 535);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 28);
             this.button1.TabIndex = 3;

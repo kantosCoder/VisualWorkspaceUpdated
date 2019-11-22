@@ -7,9 +7,9 @@ using System.Xml;
 
 namespace ModuloUsuarios
 {
-    class Caller_users //ESTA CLASE GESTIONA LA COMUNCIACION CON EL XML DE USUARIOS MEDIANTE SAX
+    class Caller_users //MODELO DE USUARIOS
     {
-        //COMPRUEBA LA EXISTENCIA Y COHERENCIA DE LOS CAMPOS DE USER Y PASSWORD
+        //VALIDADOR DE LOGIN
         public Boolean Loader(String user, String pass)
         {
             XmlTextReader reader = new XmlTextReader("C:\\DAM\\usuarios.xml");
@@ -49,6 +49,26 @@ namespace ModuloUsuarios
                 }
             }
                 return valid;
+        }
+        //LECTURA DE ITEMS
+        public List<String> itemloader(List<String> array)
+        {
+            XmlDocument userfile = new XmlDocument();
+            userfile.Load("C:\\DAM\\usuarios.xml");
+
+            XmlNodeList user = userfile.GetElementsByTagName("Usuarios");
+            XmlNodeList userlist = ((XmlElement)user[0]).GetElementsByTagName("Usuario");
+
+            foreach (XmlElement node in userlist)
+            {
+                //start array 9pos
+                //cabecera items
+                array.Add(node.GetAttribute("rol"));
+                //atributos
+                array.Add(node.GetElementsByTagName("nickname")[0].InnerText);
+                array.Add(node.GetElementsByTagName("pass")[0].InnerText);
+            }
+            return array;
         }
     }
 }

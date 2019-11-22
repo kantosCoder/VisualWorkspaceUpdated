@@ -43,5 +43,11 @@ namespace ModuloUsuarios
             Invoker.controller.Items();
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Abilities();
+            this.Close();
+        }
     }
 }

@@ -59,7 +59,16 @@ namespace ModuloUsuarios
         {
             this.cardroster.Controls.Add(card);
         }
-
+        //abilities
+        public void abilitycardconstructor(Abilitycard card)
+        {
+            this.cardroster.Controls.Add(card);
+        }
+        //users
+        public void usercardconstructor(Usercard card)
+        {
+            this.cardroster.Controls.Add(card);
+        }
         //Carga de DETAILS
         //chars
         public void chardetailload(String aname, String aclass, String arace,
@@ -172,31 +181,62 @@ namespace ModuloUsuarios
         public void itemdetailshow()
         {
             pointer.chardetail_name.Text = name;
-            pointer.chardetail_class.Text = "";
-            pointer.chardetail_race.Text = "";
+            pointer.chardetail_class.Text = type;
+            pointer.chardetail_race.Text = space;
             pointer.chardetail_lvl.Text = lvl;
-            pointer.chardetail_life.Text = life;
+            pointer.chardetail_life.Text = "";
             pointer.chardetail_energy.Text = "";
             pointer.chardetail_experience.Text = "";
-            pointer.chardetail_gold.Text = gold;
+            pointer.chardetail_gold.Text = value;
             pointer.chardetail_force.Text = damage;
-            pointer.chardetail_dexer.Text = aversion;
-            pointer.chardetail_body.Text = "";
+            pointer.chardetail_dexer.Text = armor;
+            pointer.chardetail_body.Text = weight + space;
             pointer.chardetail_intel.Text = "";
             pointer.chardetail_charism.Text = "";
             pointer.chardetail_bio.Text = ability;
+            pointer.status.Text = "";
+            pointer.attrs.Text = "Propiedades";
             pointer.chardetails.Visible = true;
-            try
-            {
-                pointer.picturedetailed.Image = Image.FromFile(image);
-            }
-            catch (Exception)
-            {
-                var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.creature);
+            var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.items);
                 pointer.picturedetailed.Image = replacer;
-            }
+        }
+        //items
+        public void abilitydetailload(String aname, String alvl, String atype, String alife, 
+            String aenergy, String photo, String bio, Display target)
+        {
+            name = aname;
+            lvl = alvl;
+            type = atype;
+            life = alife;
+            energy = aenergy;
+            pointer = target;
+            image = photo;
+            biography = bio;
+            abilitydetailshow();
         }
 
+        public void abilitydetailshow()
+        {
+            pointer.chardetail_name.Text = name;
+            pointer.chardetail_class.Text = type;
+            pointer.chardetail_race.Text = "";
+            pointer.chardetail_lvl.Text = lvl;
+            pointer.chardetail_life.Text = "Salud: "+life;
+            pointer.chardetail_energy.Text = "Energia: "+energy;
+            pointer.chardetail_experience.Text = "";
+            pointer.chardetail_gold.Text = "";
+            pointer.chardetail_force.Text = "";
+            pointer.chardetail_dexer.Text = "";
+            pointer.chardetail_body.Text = "";
+            pointer.chardetail_intel.Text = "";
+            pointer.chardetail_charism.Text = "";
+            pointer.chardetail_bio.Text = biography;
+            pointer.status.Text = "Efectos";
+            pointer.attrs.Text = "";
+            pointer.chardetails.Visible = true;
+            var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.skill);
+            pointer.picturedetailed.Image = replacer;
+        }
         private void Back_Click(object sender, EventArgs e)
         {
             Invoker.controller.Nexus();

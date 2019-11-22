@@ -48,9 +48,21 @@
   <ItemGroup>
     <Compile Include="MODEL\Caller_creatures.cs" />
     <Compile Include="MODEL\Caller_items.cs" />
-    <Compile Include="MODEL\Caller_habilities.cs" />
+    <Compile Include="MODEL\Caller_abilities.cs" />
     <Compile Include="MODEL\Caller_characters.cs" />
     <Compile Include="MODEL\Caller_users.cs" />
+    <Compile Include="VIEW\Usercard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Usercard.Designer.cs">
+      <DependentUpon>Usercard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Abilitycard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Abilitycard.Designer.cs">
+      <DependentUpon>Abilitycard.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\Creaturecard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     <Compile Include="VIEW\Charcard.Designer.cs">
       <DependentUpon>Charcard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VIEW\Usercard.resx">
+      <DependentUpon>Usercard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Abilitycard.resx">
+      <DependentUpon>Abilitycard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Creaturecard.resx">
       <DependentUpon>Creaturecard.cs</DependentUpon>
     </EmbeddedResource>

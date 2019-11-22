@@ -61,6 +61,7 @@ namespace ModuloUsuarios
                 String charism = "Carisma: " + charray[i + 15];
                 String img = charray[i + 16];
                 String bio = charray[i + 17];
+                //control empty fields (to do)
                 Charcard current = new Charcard(name, chrclass, race,
                 lvl, life, energy, xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
                 chardis.charcardconstructor(current);
@@ -86,8 +87,9 @@ namespace ModuloUsuarios
                 String a_version = "Aversión: " + crearray[i + 2];
                 String life = "Vida: " + crearray[i + 4] + "/" + crearray[i + 3];
                 String bio = ""+ crearray[i + 5];
-                String dmg = "Daño Base: " + crearray[i + 6];
+                String dmg = "Daño base: " + crearray[i + 6];
                 String img = crearray[i + 6];
+                //control empty fields (to do)
                 Creaturecard current = new Creaturecard(name, lvl, a_version, life, dmg, img, bio, creaturedis);
                 creaturedis.creaturecardconstructor(current);
                 current.fieldset(current);
@@ -113,9 +115,10 @@ namespace ModuloUsuarios
                 String name = itemarray[i+ 3];
                 String space = "("+itemarray[i + 4]+" slots)";
                 String weight = itemarray[i + 5]+"kg";
-                String armor = itemarray[i + 6];
+                String armor = "Armadura: "+itemarray[i + 6];
                 String dmg = "Daño: " + itemarray[i + 8]+"("+itemarray[i + 7]+")";
                 String ability = "Habilidades: "+itemarray[i + 9];
+                //control empty fields (to do)
                 Itemcard current = new Itemcard(type,value,lvl,name, space,weight,armor,dmg,ability,itemdis);
                 itemdis.itemcardconstructor(current);
                 current.fieldset(current);
@@ -123,7 +126,33 @@ namespace ModuloUsuarios
 
             itemdis.Show();
         }
+        //abilities
+        public void Abilities()
+        {
+            Display abildis = new Display();
+            //CREACION DE ARRAYS
+            List<String> abilarray = new List<String>();
+            Caller_abilities itemreader = new Caller_abilities();
+            //LECTURA DE CRIATURAS
+            abilarray = itemreader.abilityloader(abilarray);
+            //CREACION DE TARJETAS
+            for (int i = 0; i < abilarray.Count; i = i + 7)
+            {
+                String name = abilarray[i];
+                String lvl = abilarray[i + 1];
+                String type = abilarray[i + 2];
+                String life = abilarray[i + 3];
+                String energy = abilarray[i + 4];
+                String img = abilarray[i + 5];
+                String bio = abilarray[i + 6];
+                //control empty fields (to do)
+                Abilitycard current = new Abilitycard(name, lvl, type, life, energy, img, bio, abildis);
+                abildis.abilitycardconstructor(current);
+                current.fieldset(current);
+            }
 
+            abildis.Show();
+        }
 
 
 

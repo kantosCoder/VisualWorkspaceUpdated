@@ -54,7 +54,7 @@ namespace ModuloUsuarios
 
         private void Item_load(object sender, EventArgs e)
         {
-            current.itemdetailload(type,value,lvl,name,space,weight,armor,ability,damage,current);
+            current.itemdetailload(type,value,lvl,name,space,weight,armor,damage,ability,current);
         }
     }
 }

@@ -8,10 +8,10 @@ using System.Xml;
 namespace ModuloUsuarios.MODEL
 {
     //MODELO DE HABILIDADES
-    class Caller_habilities
+    class Caller_abilities
     {
         //LECTURA DE HABILIDADES
-        public List<String> habloader(List<String> array){
+        public List<String> abilityloader(List<String> array){
             XmlDocument skillfile = new XmlDocument();
             skillfile.Load("C:\\DAM\\Habilidades.xml");
 
