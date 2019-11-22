@@ -21,6 +21,7 @@ namespace ModuloUsuarios.MODEL
             foreach (XmlElement node in charlist)
             {
                 //cabecera pers
+                array.Add(node.GetAttribute("id"));
                 array.Add(node.GetAttribute("Nombre"));
                 array.Add(node.GetAttribute("Clase"));
                 array.Add(node.GetAttribute("Raza"));
@@ -43,6 +44,112 @@ namespace ModuloUsuarios.MODEL
                 //array habilidades opcional
             }
             return array;
+        }
+        //MODIFICACION DE PERSONAJES
+        public void charrewrite(String id, String aname, String aclass, String arace,
+            String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
+             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio) {
+            XmlDocument charfile = new XmlDocument();
+            charfile.Load("C:\\DAM\\Personajes.xml");
+            int position = 0;
+            XmlNodeList chars = charfile.GetElementsByTagName("Personajes");
+            XmlNode root = charfile.DocumentElement;
+            XmlNodeList charlist = ((XmlElement)chars[0]).GetElementsByTagName("Personaje");
+            XmlElement replaced = charfile.CreateElement("Personaje");
+            foreach (XmlElement node in charlist)
+            {
+                position++;
+                //cabecera pers
+                if ((node.GetAttribute("id").Equals(id))){
+                    replaced = node;
+                    
+                }
+                
+            }
+            //new node
+            XmlElement replacer = charfile.CreateElement("Personaje");
+            //cabecera personaje
+            replacer.SetAttribute("id", id);
+            replacer.SetAttribute("Nombre", aname);
+            replacer.SetAttribute("raza", arace);
+            //atributos personaje
+            //append
+            XmlElement replacer_append = charfile.CreateElement("Atributos");
+                //append of append (Atributos de personaje)
+                //append of append
+                XmlElement append_append = charfile.CreateElement("Fuerza");
+                append_append.InnerText = aforce;
+                replacer_append.AppendChild(append_append);
+                //append of append
+                append_append = charfile.CreateElement("Destreza");
+                append_append.InnerText = adexer;
+                replacer_append.AppendChild(append_append);
+                //append of append
+                append_append = charfile.CreateElement("Aguante");
+                append_append.InnerText = abody;
+                replacer_append.AppendChild(append_append);
+                //append of append
+                append_append = charfile.CreateElement("Inteligencia");
+                append_append.InnerText = aintel;
+                replacer_append.AppendChild(append_append);
+                //append of append
+                append_append = charfile.CreateElement("Carisma");
+                append_append.InnerText = acharism;
+                replacer_append.AppendChild(append_append);
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Vida");
+            replacer_append.SetAttribute("Maxima", malife);
+            replacer_append.InnerText = alife;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Energia");
+            replacer_append.SetAttribute("Maxima", maenergy);
+            replacer_append.InnerText = aenergy;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Nivel");
+            replacer_append.SetAttribute("Actual", alvl);
+                //append of append
+                append_append = charfile.CreateElement("Exp");
+                append_append.SetAttribute("Necesaria", maxp);
+                replacer_append.AppendChild(append_append);
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Monedas");
+            replacer_append.InnerText = agold;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Bio");
+            replacer_append.InnerText = bio;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = charfile.CreateElement("Imagen");
+            replacer_append.InnerText = img;
+            replacer.AppendChild(replacer_append);
+            //insertion to root
+            root.AppendChild(replacer);
+            //delete old node
+            root.RemoveChild(replaced);
+            charfile.Save("C:\\DAM\\Personajes.xml");
+
+
+            /*
+            node.GetElementsByTagName("Vida")[0].Attributes[0].InnerText
+            node.GetElementsByTagName("Vida")[0].InnerText
+            node.GetElementsByTagName("Energia")[0].Attributes[0].InnerText
+            node.GetElementsByTagName("Energia")[0].InnerText
+            node.GetElementsByTagName("Exp")[0].Attributes[0].InnerText
+            node.GetElementsByTagName("Exp")[0].InnerText
+            node.GetElementsByTagName("Monedas")[0].InnerText
+            node.GetElementsByTagName("Fuerza")[0].InnerText
+            node.GetElementsByTagName("Destreza")[0].InnerText
+            node.GetElementsByTagName("Aguante")[0].InnerText
+            node.GetElementsByTagName("Inteligencia")[0].InnerText
+            node.GetElementsByTagName("Carisma")[0].InnerText
+            node.GetElementsByTagName("Imagen")[0].InnerText
+            node.GetElementsByTagName("Bio")[0].InnerText */
+            //array habilidades opcional
         }
     }
 }

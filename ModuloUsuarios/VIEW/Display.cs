@@ -20,10 +20,13 @@ namespace ModuloUsuarios
         private String race = "";
         private String lvl = "";
         private String life = "";
+        private String maxlife = "";
         private String damage = "";
         private String aversion = "";
         private String energy = "";
+        private String maxenergy = "";
         private String xp = "";
+        private String max_xp = "";
         private String gold = "";
         private String force = "";
         private String dexer = "";
@@ -72,15 +75,18 @@ namespace ModuloUsuarios
         //Carga de DETAILS
         //chars
         public void chardetailload(String aname, String aclass, String arace,
-            String alvl, String alife, String aenergy, String axp, String agold,
+            String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
              String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio, Display target) {
             name = aname;
             chrclass = aclass;
             race = arace;
             lvl = alvl;
             life = alife;
+            maxlife = malife;
             energy = aenergy;
+            maxenergy = maenergy;
             xp = axp;
+            max_xp = maxp;
             gold = agold;
             force = aforce;
             dexer = adexer;
@@ -98,15 +104,15 @@ namespace ModuloUsuarios
             pointer.chardetail_class.Text = chrclass;
             pointer.chardetail_race.Text = race;
             pointer.chardetail_lvl.Text = lvl;
-            pointer.chardetail_life.Text = life;
-            pointer.chardetail_energy.Text = energy;
-            pointer.chardetail_experience.Text = xp;
-            pointer.chardetail_gold.Text = gold;
-            pointer.chardetail_force.Text = force;
-            pointer.chardetail_dexer.Text = dexer;
-            pointer.chardetail_body.Text = body;
-            pointer.chardetail_intel.Text = intel;
-            pointer.chardetail_charism.Text = charism;
+            pointer.chardetail_life.Text = "Vida: "+life+"/"+maxlife;
+            pointer.chardetail_energy.Text = "Energia: " + energy + "/" + maxenergy;
+            pointer.chardetail_experience.Text = "XP: " + xp + "/" + max_xp;
+            pointer.chardetail_gold.Text = "Gold: "+gold;
+            pointer.chardetail_force.Text = "Fuerza: "+force;
+            pointer.chardetail_dexer.Text = "Destreza: "+dexer;
+            pointer.chardetail_body.Text = "Resistencia: "+body;
+            pointer.chardetail_intel.Text = "Inteligencia: "+intel;
+            pointer.chardetail_charism.Text = "Carisma: "+charism;
             pointer.chardetail_bio.Text = biography;
             pointer.chardetails.Visible = true;
             try

@@ -29,304 +29,483 @@
         private void InitializeComponent()
         {
             this.chardetails = new System.Windows.Forms.Panel();
-            this.chardetail_race = new System.Windows.Forms.Label();
-            this.chardetail_charism = new System.Windows.Forms.Label();
-            this.chardetail_intel = new System.Windows.Forms.Label();
-            this.chardetail_body = new System.Windows.Forms.Label();
-            this.chardetail_dexer = new System.Windows.Forms.Label();
-            this.chardetail_force = new System.Windows.Forms.Label();
+            this.changeimgbutton = new System.Windows.Forms.Button();
+            this.bioedit = new System.Windows.Forms.Label();
+            this.biofield = new System.Windows.Forms.TextBox();
+            this.charismfield = new System.Windows.Forms.TextBox();
+            this.intelfield = new System.Windows.Forms.TextBox();
+            this.bodyfield = new System.Windows.Forms.TextBox();
+            this.dexerityfield = new System.Windows.Forms.TextBox();
+            this.forcefield = new System.Windows.Forms.TextBox();
+            this.goldfield = new System.Windows.Forms.TextBox();
+            this.experiencefield = new System.Windows.Forms.TextBox();
+            this.energyfield = new System.Windows.Forms.TextBox();
+            this.lifefield = new System.Windows.Forms.TextBox();
+            this.racefield = new System.Windows.Forms.TextBox();
+            this.classfield = new System.Windows.Forms.TextBox();
+            this.levelfield = new System.Windows.Forms.TextBox();
+            this.namefield = new System.Windows.Forms.TextBox();
+            this.raceedit = new System.Windows.Forms.Label();
+            this.charismedit = new System.Windows.Forms.Label();
+            this.inteledit = new System.Windows.Forms.Label();
+            this.bodyedit = new System.Windows.Forms.Label();
+            this.dexerityedit = new System.Windows.Forms.Label();
+            this.forceedit = new System.Windows.Forms.Label();
             this.attrs = new System.Windows.Forms.Label();
-            this.chardetail_class = new System.Windows.Forms.Label();
-            this.chardetail_name = new System.Windows.Forms.Label();
-            this.chardetail_gold = new System.Windows.Forms.Label();
+            this.classedit = new System.Windows.Forms.Label();
+            this.nameedit = new System.Windows.Forms.Label();
+            this.goldedit = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.Label();
-            this.chardetail_experience = new System.Windows.Forms.Label();
-            this.chardetail_energy = new System.Windows.Forms.Label();
-            this.chardetail_life = new System.Windows.Forms.Label();
-            this.chardetail_lvl = new System.Windows.Forms.Label();
-            this.picturedetailed = new System.Windows.Forms.PictureBox();
-            this.chardetail_bio = new System.Windows.Forms.Label();
-            this.back = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.experienceedit = new System.Windows.Forms.Label();
+            this.energyedit = new System.Windows.Forms.Label();
+            this.lifeedit = new System.Windows.Forms.Label();
+            this.leveledit = new System.Windows.Forms.Label();
+            this.imageedit = new System.Windows.Forms.PictureBox();
+            this.discardbutton = new System.Windows.Forms.Button();
+            this.savebutton = new System.Windows.Forms.Button();
+            this.maxlifefield = new System.Windows.Forms.TextBox();
+            this.maxenergyfield = new System.Windows.Forms.TextBox();
+            this.maxxpfield = new System.Windows.Forms.TextBox();
+            this.nameofedition = new System.Windows.Forms.Label();
             this.chardetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturedetailed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageedit)).BeginInit();
             this.SuspendLayout();
             // 
             // chardetails
             // 
-            this.chardetails.Controls.Add(this.chardetail_race);
-            this.chardetails.Controls.Add(this.chardetail_charism);
-            this.chardetails.Controls.Add(this.chardetail_intel);
-            this.chardetails.Controls.Add(this.chardetail_body);
-            this.chardetails.Controls.Add(this.chardetail_dexer);
-            this.chardetails.Controls.Add(this.chardetail_force);
+            this.chardetails.Controls.Add(this.nameofedition);
+            this.chardetails.Controls.Add(this.maxxpfield);
+            this.chardetails.Controls.Add(this.maxenergyfield);
+            this.chardetails.Controls.Add(this.maxlifefield);
+            this.chardetails.Controls.Add(this.changeimgbutton);
+            this.chardetails.Controls.Add(this.bioedit);
+            this.chardetails.Controls.Add(this.biofield);
+            this.chardetails.Controls.Add(this.charismfield);
+            this.chardetails.Controls.Add(this.intelfield);
+            this.chardetails.Controls.Add(this.bodyfield);
+            this.chardetails.Controls.Add(this.dexerityfield);
+            this.chardetails.Controls.Add(this.forcefield);
+            this.chardetails.Controls.Add(this.goldfield);
+            this.chardetails.Controls.Add(this.experiencefield);
+            this.chardetails.Controls.Add(this.energyfield);
+            this.chardetails.Controls.Add(this.lifefield);
+            this.chardetails.Controls.Add(this.racefield);
+            this.chardetails.Controls.Add(this.classfield);
+            this.chardetails.Controls.Add(this.levelfield);
+            this.chardetails.Controls.Add(this.namefield);
+            this.chardetails.Controls.Add(this.raceedit);
+            this.chardetails.Controls.Add(this.charismedit);
+            this.chardetails.Controls.Add(this.inteledit);
+            this.chardetails.Controls.Add(this.bodyedit);
+            this.chardetails.Controls.Add(this.dexerityedit);
+            this.chardetails.Controls.Add(this.forceedit);
             this.chardetails.Controls.Add(this.attrs);
-            this.chardetails.Controls.Add(this.chardetail_class);
-            this.chardetails.Controls.Add(this.chardetail_name);
-            this.chardetails.Controls.Add(this.chardetail_gold);
+            this.chardetails.Controls.Add(this.classedit);
+            this.chardetails.Controls.Add(this.nameedit);
+            this.chardetails.Controls.Add(this.goldedit);
             this.chardetails.Controls.Add(this.status);
-            this.chardetails.Controls.Add(this.chardetail_experience);
-            this.chardetails.Controls.Add(this.chardetail_energy);
-            this.chardetails.Controls.Add(this.chardetail_life);
-            this.chardetails.Controls.Add(this.chardetail_lvl);
-            this.chardetails.Controls.Add(this.picturedetailed);
-            this.chardetails.Controls.Add(this.chardetail_bio);
-            this.chardetails.Location = new System.Drawing.Point(16, 15);
-            this.chardetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chardetails.Controls.Add(this.experienceedit);
+            this.chardetails.Controls.Add(this.energyedit);
+            this.chardetails.Controls.Add(this.lifeedit);
+            this.chardetails.Controls.Add(this.leveledit);
+            this.chardetails.Controls.Add(this.imageedit);
+            this.chardetails.Location = new System.Drawing.Point(12, 12);
             this.chardetails.Name = "chardetails";
-            this.chardetails.Size = new System.Drawing.Size(848, 678);
+            this.chardetails.Size = new System.Drawing.Size(968, 518);
             this.chardetails.TabIndex = 1;
-            this.chardetails.Visible = false;
             // 
-            // chardetail_race
+            // changeimgbutton
             // 
-            this.chardetail_race.AutoSize = true;
-            this.chardetail_race.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_race.Location = new System.Drawing.Point(164, 338);
-            this.chardetail_race.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_race.Name = "chardetail_race";
-            this.chardetail_race.Size = new System.Drawing.Size(69, 29);
-            this.chardetail_race.TabIndex = 16;
-            this.chardetail_race.Text = "Race";
+            this.changeimgbutton.Location = new System.Drawing.Point(115, 246);
+            this.changeimgbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.changeimgbutton.Name = "changeimgbutton";
+            this.changeimgbutton.Size = new System.Drawing.Size(90, 28);
+            this.changeimgbutton.TabIndex = 4;
+            this.changeimgbutton.Text = "Subir foto";
+            this.changeimgbutton.UseVisualStyleBackColor = true;
             // 
-            // chardetail_charism
+            // bioedit
             // 
-            this.chardetail_charism.AutoSize = true;
-            this.chardetail_charism.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_charism.Location = new System.Drawing.Point(397, 309);
-            this.chardetail_charism.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_charism.Name = "chardetail_charism";
-            this.chardetail_charism.Size = new System.Drawing.Size(91, 25);
-            this.chardetail_charism.TabIndex = 15;
-            this.chardetail_charism.Text = "Charism";
+            this.bioedit.AutoSize = true;
+            this.bioedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bioedit.Location = new System.Drawing.Point(618, 68);
+            this.bioedit.Name = "bioedit";
+            this.bioedit.Size = new System.Drawing.Size(44, 26);
+            this.bioedit.TabIndex = 32;
+            this.bioedit.Text = "Bio";
             // 
-            // chardetail_intel
+            // biofield
             // 
-            this.chardetail_intel.AutoSize = true;
-            this.chardetail_intel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_intel.Location = new System.Drawing.Point(397, 284);
-            this.chardetail_intel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_intel.Name = "chardetail_intel";
-            this.chardetail_intel.Size = new System.Drawing.Size(52, 25);
-            this.chardetail_intel.TabIndex = 14;
-            this.chardetail_intel.Text = "Intel";
+            this.biofield.Location = new System.Drawing.Point(623, 97);
+            this.biofield.Multiline = true;
+            this.biofield.Name = "biofield";
+            this.biofield.Size = new System.Drawing.Size(306, 367);
+            this.biofield.TabIndex = 31;
             // 
-            // chardetail_body
+            // charismfield
             // 
-            this.chardetail_body.AutoSize = true;
-            this.chardetail_body.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_body.Location = new System.Drawing.Point(397, 258);
-            this.chardetail_body.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_body.Name = "chardetail_body";
-            this.chardetail_body.Size = new System.Drawing.Size(61, 25);
-            this.chardetail_body.TabIndex = 13;
-            this.chardetail_body.Text = "Body";
+            this.charismfield.Location = new System.Drawing.Point(387, 443);
+            this.charismfield.Name = "charismfield";
+            this.charismfield.Size = new System.Drawing.Size(121, 20);
+            this.charismfield.TabIndex = 30;
             // 
-            // chardetail_dexer
+            // intelfield
             // 
-            this.chardetail_dexer.AutoSize = true;
-            this.chardetail_dexer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_dexer.Location = new System.Drawing.Point(397, 234);
-            this.chardetail_dexer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_dexer.Name = "chardetail_dexer";
-            this.chardetail_dexer.Size = new System.Drawing.Size(91, 25);
-            this.chardetail_dexer.TabIndex = 12;
-            this.chardetail_dexer.Text = "Dexerity";
+            this.intelfield.Location = new System.Drawing.Point(387, 423);
+            this.intelfield.Name = "intelfield";
+            this.intelfield.Size = new System.Drawing.Size(121, 20);
+            this.intelfield.TabIndex = 29;
             // 
-            // chardetail_force
+            // bodyfield
             // 
-            this.chardetail_force.AutoSize = true;
-            this.chardetail_force.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_force.Location = new System.Drawing.Point(397, 209);
-            this.chardetail_force.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_force.Name = "chardetail_force";
-            this.chardetail_force.Size = new System.Drawing.Size(67, 25);
-            this.chardetail_force.TabIndex = 11;
-            this.chardetail_force.Text = "Force";
+            this.bodyfield.Location = new System.Drawing.Point(387, 402);
+            this.bodyfield.Name = "bodyfield";
+            this.bodyfield.Size = new System.Drawing.Size(121, 20);
+            this.bodyfield.TabIndex = 28;
+            // 
+            // dexerityfield
+            // 
+            this.dexerityfield.Location = new System.Drawing.Point(387, 382);
+            this.dexerityfield.Name = "dexerityfield";
+            this.dexerityfield.Size = new System.Drawing.Size(121, 20);
+            this.dexerityfield.TabIndex = 27;
+            // 
+            // forcefield
+            // 
+            this.forcefield.Location = new System.Drawing.Point(387, 362);
+            this.forcefield.Name = "forcefield";
+            this.forcefield.Size = new System.Drawing.Size(121, 20);
+            this.forcefield.TabIndex = 26;
+            // 
+            // goldfield
+            // 
+            this.goldfield.Location = new System.Drawing.Point(387, 266);
+            this.goldfield.Name = "goldfield";
+            this.goldfield.Size = new System.Drawing.Size(121, 20);
+            this.goldfield.TabIndex = 24;
+            // 
+            // experiencefield
+            // 
+            this.experiencefield.Location = new System.Drawing.Point(387, 246);
+            this.experiencefield.Name = "experiencefield";
+            this.experiencefield.Size = new System.Drawing.Size(76, 20);
+            this.experiencefield.TabIndex = 23;
+            // 
+            // energyfield
+            // 
+            this.energyfield.Location = new System.Drawing.Point(387, 226);
+            this.energyfield.Name = "energyfield";
+            this.energyfield.Size = new System.Drawing.Size(76, 20);
+            this.energyfield.TabIndex = 22;
+            // 
+            // lifefield
+            // 
+            this.lifefield.Location = new System.Drawing.Point(387, 206);
+            this.lifefield.Name = "lifefield";
+            this.lifefield.Size = new System.Drawing.Size(76, 20);
+            this.lifefield.TabIndex = 21;
+            // 
+            // racefield
+            // 
+            this.racefield.Location = new System.Drawing.Point(387, 144);
+            this.racefield.Name = "racefield";
+            this.racefield.Size = new System.Drawing.Size(121, 20);
+            this.racefield.TabIndex = 20;
+            // 
+            // classfield
+            // 
+            this.classfield.Location = new System.Drawing.Point(387, 120);
+            this.classfield.Name = "classfield";
+            this.classfield.Size = new System.Drawing.Size(121, 20);
+            this.classfield.TabIndex = 19;
+            // 
+            // levelfield
+            // 
+            this.levelfield.Location = new System.Drawing.Point(387, 96);
+            this.levelfield.Name = "levelfield";
+            this.levelfield.Size = new System.Drawing.Size(121, 20);
+            this.levelfield.TabIndex = 18;
+            // 
+            // namefield
+            // 
+            this.namefield.Location = new System.Drawing.Point(387, 72);
+            this.namefield.Name = "namefield";
+            this.namefield.Size = new System.Drawing.Size(121, 20);
+            this.namefield.TabIndex = 17;
+            // 
+            // raceedit
+            // 
+            this.raceedit.AutoSize = true;
+            this.raceedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.raceedit.Location = new System.Drawing.Point(240, 141);
+            this.raceedit.Name = "raceedit";
+            this.raceedit.Size = new System.Drawing.Size(54, 24);
+            this.raceedit.TabIndex = 16;
+            this.raceedit.Text = "Race";
+            // 
+            // charismedit
+            // 
+            this.charismedit.AutoSize = true;
+            this.charismedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.charismedit.Location = new System.Drawing.Point(239, 444);
+            this.charismedit.Name = "charismedit";
+            this.charismedit.Size = new System.Drawing.Size(72, 20);
+            this.charismedit.TabIndex = 15;
+            this.charismedit.Text = "Charism";
+            // 
+            // inteledit
+            // 
+            this.inteledit.AutoSize = true;
+            this.inteledit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inteledit.Location = new System.Drawing.Point(239, 424);
+            this.inteledit.Name = "inteledit";
+            this.inteledit.Size = new System.Drawing.Size(40, 20);
+            this.inteledit.TabIndex = 14;
+            this.inteledit.Text = "Intel";
+            // 
+            // bodyedit
+            // 
+            this.bodyedit.AutoSize = true;
+            this.bodyedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodyedit.Location = new System.Drawing.Point(239, 403);
+            this.bodyedit.Name = "bodyedit";
+            this.bodyedit.Size = new System.Drawing.Size(47, 20);
+            this.bodyedit.TabIndex = 13;
+            this.bodyedit.Text = "Body";
+            // 
+            // dexerityedit
+            // 
+            this.dexerityedit.AutoSize = true;
+            this.dexerityedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dexerityedit.Location = new System.Drawing.Point(239, 383);
+            this.dexerityedit.Name = "dexerityedit";
+            this.dexerityedit.Size = new System.Drawing.Size(71, 20);
+            this.dexerityedit.TabIndex = 12;
+            this.dexerityedit.Text = "Dexerity";
+            // 
+            // forceedit
+            // 
+            this.forceedit.AutoSize = true;
+            this.forceedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forceedit.Location = new System.Drawing.Point(239, 363);
+            this.forceedit.Name = "forceedit";
+            this.forceedit.Size = new System.Drawing.Size(52, 20);
+            this.forceedit.TabIndex = 11;
+            this.forceedit.Text = "Force";
             // 
             // attrs
             // 
             this.attrs.AutoSize = true;
             this.attrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attrs.Location = new System.Drawing.Point(397, 171);
-            this.attrs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.attrs.Location = new System.Drawing.Point(239, 332);
             this.attrs.Name = "attrs";
-            this.attrs.Size = new System.Drawing.Size(107, 29);
+            this.attrs.Size = new System.Drawing.Size(81, 22);
             this.attrs.TabIndex = 10;
             this.attrs.Text = "Atributos";
             // 
-            // chardetail_class
+            // classedit
             // 
-            this.chardetail_class.AutoSize = true;
-            this.chardetail_class.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_class.Location = new System.Drawing.Point(284, 338);
-            this.chardetail_class.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_class.Name = "chardetail_class";
-            this.chardetail_class.Size = new System.Drawing.Size(73, 29);
-            this.chardetail_class.TabIndex = 9;
-            this.chardetail_class.Text = "Class";
+            this.classedit.AutoSize = true;
+            this.classedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classedit.Location = new System.Drawing.Point(239, 117);
+            this.classedit.Name = "classedit";
+            this.classedit.Size = new System.Drawing.Size(55, 24);
+            this.classedit.TabIndex = 9;
+            this.classedit.Text = "Class";
             // 
-            // chardetail_name
+            // nameedit
             // 
-            this.chardetail_name.AutoSize = true;
-            this.chardetail_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_name.Location = new System.Drawing.Point(13, 332);
-            this.chardetail_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_name.Name = "chardetail_name";
-            this.chardetail_name.Size = new System.Drawing.Size(90, 32);
-            this.chardetail_name.TabIndex = 8;
-            this.chardetail_name.Text = "Name";
+            this.nameedit.AutoSize = true;
+            this.nameedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameedit.Location = new System.Drawing.Point(238, 66);
+            this.nameedit.Name = "nameedit";
+            this.nameedit.Size = new System.Drawing.Size(71, 26);
+            this.nameedit.TabIndex = 8;
+            this.nameedit.Text = "Name";
             // 
-            // chardetail_gold
+            // goldedit
             // 
-            this.chardetail_gold.AutoSize = true;
-            this.chardetail_gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_gold.Location = new System.Drawing.Point(15, 393);
-            this.chardetail_gold.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_gold.Name = "chardetail_gold";
-            this.chardetail_gold.Size = new System.Drawing.Size(57, 25);
-            this.chardetail_gold.TabIndex = 7;
-            this.chardetail_gold.Text = "Gold";
+            this.goldedit.AutoSize = true;
+            this.goldedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goldedit.Location = new System.Drawing.Point(240, 267);
+            this.goldedit.Name = "goldedit";
+            this.goldedit.Size = new System.Drawing.Size(44, 20);
+            this.goldedit.TabIndex = 7;
+            this.goldedit.Text = "Gold";
             // 
             // status
             // 
             this.status.AutoSize = true;
             this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.Location = new System.Drawing.Point(397, 20);
-            this.status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.status.Location = new System.Drawing.Point(239, 175);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(88, 29);
+            this.status.Size = new System.Drawing.Size(66, 22);
             this.status.TabIndex = 6;
             this.status.Text = "Estado";
             // 
-            // chardetail_experience
+            // experienceedit
             // 
-            this.chardetail_experience.AutoSize = true;
-            this.chardetail_experience.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_experience.Location = new System.Drawing.Point(15, 368);
-            this.chardetail_experience.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_experience.Name = "chardetail_experience";
-            this.chardetail_experience.Size = new System.Drawing.Size(159, 25);
-            this.chardetail_experience.TabIndex = 5;
-            this.chardetail_experience.Text = "Experiencia x/x";
+            this.experienceedit.AutoSize = true;
+            this.experienceedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.experienceedit.Location = new System.Drawing.Point(239, 247);
+            this.experienceedit.Name = "experienceedit";
+            this.experienceedit.Size = new System.Drawing.Size(31, 20);
+            this.experienceedit.TabIndex = 5;
+            this.experienceedit.Text = "XP";
             // 
-            // chardetail_energy
+            // energyedit
             // 
-            this.chardetail_energy.AutoSize = true;
-            this.chardetail_energy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_energy.Location = new System.Drawing.Point(397, 82);
-            this.chardetail_energy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_energy.Name = "chardetail_energy";
-            this.chardetail_energy.Size = new System.Drawing.Size(114, 25);
-            this.chardetail_energy.TabIndex = 4;
-            this.chardetail_energy.Text = "Energy x/x";
+            this.energyedit.AutoSize = true;
+            this.energyedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.energyedit.Location = new System.Drawing.Point(239, 227);
+            this.energyedit.Name = "energyedit";
+            this.energyedit.Size = new System.Drawing.Size(87, 20);
+            this.energyedit.TabIndex = 4;
+            this.energyedit.Text = "Energy x/x";
             // 
-            // chardetail_life
+            // lifeedit
             // 
-            this.chardetail_life.AutoSize = true;
-            this.chardetail_life.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_life.Location = new System.Drawing.Point(397, 59);
-            this.chardetail_life.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_life.Name = "chardetail_life";
-            this.chardetail_life.Size = new System.Drawing.Size(81, 25);
-            this.chardetail_life.TabIndex = 3;
-            this.chardetail_life.Text = "Life x/x";
+            this.lifeedit.AutoSize = true;
+            this.lifeedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lifeedit.Location = new System.Drawing.Point(239, 207);
+            this.lifeedit.Name = "lifeedit";
+            this.lifeedit.Size = new System.Drawing.Size(63, 20);
+            this.lifeedit.TabIndex = 3;
+            this.lifeedit.Text = "Life x/x";
             // 
-            // chardetail_lvl
+            // leveledit
             // 
-            this.chardetail_lvl.AutoSize = true;
-            this.chardetail_lvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_lvl.Location = new System.Drawing.Point(343, 5);
-            this.chardetail_lvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_lvl.Name = "chardetail_lvl";
-            this.chardetail_lvl.Size = new System.Drawing.Size(38, 30);
-            this.chardetail_lvl.TabIndex = 2;
-            this.chardetail_lvl.Text = "lvl";
+            this.leveledit.AutoSize = true;
+            this.leveledit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leveledit.Location = new System.Drawing.Point(238, 92);
+            this.leveledit.Name = "leveledit";
+            this.leveledit.Size = new System.Drawing.Size(33, 25);
+            this.leveledit.TabIndex = 2;
+            this.leveledit.Text = "lvl";
             // 
-            // picturedetailed
+            // imageedit
             // 
-            this.picturedetailed.Location = new System.Drawing.Point(9, 5);
-            this.picturedetailed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picturedetailed.Name = "picturedetailed";
-            this.picturedetailed.Size = new System.Drawing.Size(381, 359);
-            this.picturedetailed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picturedetailed.TabIndex = 1;
-            this.picturedetailed.TabStop = false;
+            this.imageedit.Location = new System.Drawing.Point(3, 53);
+            this.imageedit.Name = "imageedit";
+            this.imageedit.Size = new System.Drawing.Size(202, 184);
+            this.imageedit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageedit.TabIndex = 1;
+            this.imageedit.TabStop = false;
             // 
-            // chardetail_bio
+            // discardbutton
             // 
-            this.chardetail_bio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chardetail_bio.Location = new System.Drawing.Point(5, 444);
-            this.chardetail_bio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chardetail_bio.Name = "chardetail_bio";
-            this.chardetail_bio.Size = new System.Drawing.Size(839, 223);
-            this.chardetail_bio.TabIndex = 0;
-            this.chardetail_bio.Text = "BIO";
+            this.discardbutton.Location = new System.Drawing.Point(890, 535);
+            this.discardbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.discardbutton.Name = "discardbutton";
+            this.discardbutton.Size = new System.Drawing.Size(90, 28);
+            this.discardbutton.TabIndex = 2;
+            this.discardbutton.Text = "Descartar";
+            this.discardbutton.UseVisualStyleBackColor = true;
+            this.discardbutton.Click += new System.EventHandler(this.Back_Click);
             // 
-            // back
+            // savebutton
             // 
-            this.back.Location = new System.Drawing.Point(1187, 658);
-            this.back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(120, 34);
-            this.back.TabIndex = 2;
-            this.back.Text = "volver";
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.Back_Click);
+            this.savebutton.Location = new System.Drawing.Point(796, 535);
+            this.savebutton.Margin = new System.Windows.Forms.Padding(2);
+            this.savebutton.Name = "savebutton";
+            this.savebutton.Size = new System.Drawing.Size(90, 28);
+            this.savebutton.TabIndex = 3;
+            this.savebutton.Text = "Guardar";
+            this.savebutton.UseVisualStyleBackColor = true;
+            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
             // 
-            // button1
+            // maxlifefield
             // 
-            this.button1.Location = new System.Drawing.Point(1061, 658);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.maxlifefield.Location = new System.Drawing.Point(469, 206);
+            this.maxlifefield.Name = "maxlifefield";
+            this.maxlifefield.Size = new System.Drawing.Size(76, 20);
+            this.maxlifefield.TabIndex = 33;
+            // 
+            // maxenergyfield
+            // 
+            this.maxenergyfield.Location = new System.Drawing.Point(469, 226);
+            this.maxenergyfield.Name = "maxenergyfield";
+            this.maxenergyfield.Size = new System.Drawing.Size(76, 20);
+            this.maxenergyfield.TabIndex = 34;
+            // 
+            // maxxpfield
+            // 
+            this.maxxpfield.Location = new System.Drawing.Point(469, 246);
+            this.maxxpfield.Name = "maxxpfield";
+            this.maxxpfield.Size = new System.Drawing.Size(76, 20);
+            this.maxxpfield.TabIndex = 35;
+            // 
+            // nameofedition
+            // 
+            this.nameofedition.AutoSize = true;
+            this.nameofedition.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameofedition.Location = new System.Drawing.Point(185, 10);
+            this.nameofedition.Name = "nameofedition";
+            this.nameofedition.Size = new System.Drawing.Size(86, 31);
+            this.nameofedition.TabIndex = 36;
+            this.nameofedition.Text = "Name";
             // 
             // Edit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1320, 726);
+            this.ClientSize = new System.Drawing.Size(992, 592);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.back);
+            this.Controls.Add(this.savebutton);
+            this.Controls.Add(this.discardbutton);
             this.Controls.Add(this.chardetails);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1338, 744);
+            this.MaximumSize = new System.Drawing.Size(1008, 608);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1338, 744);
+            this.MinimumSize = new System.Drawing.Size(1008, 608);
             this.Name = "Edit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.chardetails.ResumeLayout(false);
             this.chardetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturedetailed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageedit)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel chardetails;
-        private System.Windows.Forms.Label chardetail_bio;
-        private System.Windows.Forms.Label chardetail_energy;
-        private System.Windows.Forms.Label chardetail_life;
-        private System.Windows.Forms.Label chardetail_lvl;
-        private System.Windows.Forms.PictureBox picturedetailed;
-        private System.Windows.Forms.Button back;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label energyedit;
+        private System.Windows.Forms.Label lifeedit;
+        private System.Windows.Forms.Label leveledit;
+        private System.Windows.Forms.PictureBox imageedit;
+        private System.Windows.Forms.Button discardbutton;
+        private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Label status;
-        private System.Windows.Forms.Label chardetail_experience;
-        private System.Windows.Forms.Label chardetail_name;
-        private System.Windows.Forms.Label chardetail_gold;
-        private System.Windows.Forms.Label chardetail_class;
-        private System.Windows.Forms.Label chardetail_intel;
-        private System.Windows.Forms.Label chardetail_body;
-        private System.Windows.Forms.Label chardetail_dexer;
-        private System.Windows.Forms.Label chardetail_force;
+        private System.Windows.Forms.Label experienceedit;
+        private System.Windows.Forms.Label nameedit;
+        private System.Windows.Forms.Label goldedit;
+        private System.Windows.Forms.Label classedit;
+        private System.Windows.Forms.Label inteledit;
+        private System.Windows.Forms.Label bodyedit;
+        private System.Windows.Forms.Label dexerityedit;
+        private System.Windows.Forms.Label forceedit;
         private System.Windows.Forms.Label attrs;
-        private System.Windows.Forms.Label chardetail_charism;
-        private System.Windows.Forms.Label chardetail_race;
+        private System.Windows.Forms.Label charismedit;
+        private System.Windows.Forms.Label raceedit;
+        private System.Windows.Forms.Label bioedit;
+        private System.Windows.Forms.TextBox biofield;
+        private System.Windows.Forms.TextBox charismfield;
+        private System.Windows.Forms.TextBox intelfield;
+        private System.Windows.Forms.TextBox bodyfield;
+        private System.Windows.Forms.TextBox dexerityfield;
+        private System.Windows.Forms.TextBox forcefield;
+        private System.Windows.Forms.TextBox goldfield;
+        private System.Windows.Forms.TextBox experiencefield;
+        private System.Windows.Forms.TextBox energyfield;
+        private System.Windows.Forms.TextBox lifefield;
+        private System.Windows.Forms.TextBox racefield;
+        private System.Windows.Forms.TextBox classfield;
+        private System.Windows.Forms.TextBox levelfield;
+        private System.Windows.Forms.TextBox namefield;
+        private System.Windows.Forms.Button changeimgbutton;
+        private System.Windows.Forms.TextBox maxxpfield;
+        private System.Windows.Forms.TextBox maxenergyfield;
+        private System.Windows.Forms.TextBox maxlifefield;
+        private System.Windows.Forms.Label nameofedition;
     }
 }

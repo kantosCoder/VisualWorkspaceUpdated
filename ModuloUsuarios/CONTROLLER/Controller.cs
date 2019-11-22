@@ -34,6 +34,7 @@ namespace ModuloUsuarios
             Login login = new Login();
             login.Show();
         }
+        //DISPLAY CLASS
         //characters
         public void Chars()
         {
@@ -44,26 +45,30 @@ namespace ModuloUsuarios
             //LECTURA DE PERSONAJES
             charray = charreader.charloader(charray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < charray.Count; i = i + 18)
+            for (int i = 0; i < charray.Count; i = i + 19)
             {
-                String name = charray[i];
-                String chrclass = charray[i + 1];
-                String race = charray[i + 2];
-                String lvl = charray[i + 3];
-                String life = "Vida: " + charray[i + 5] + "/" + charray[i + 4];
-                String energy = "Energia: " + charray[i + 7] + "/" + charray[i + 6];
-                String xp = "XP: " + charray[i + 9] + "/" + charray[i + 8];
-                String gold = "Gold: " + charray[i + 10];
-                String force = "Fuerza: " + charray[i+ 11];
-                String dexer = "Destreza: " + charray[i + 12];
-                String body = "Aguante: " + charray[i + 13];
-                String intel = "Inteligencia: " + charray[i + 14];
-                String charism = "Carisma: " + charray[i + 15];
-                String img = charray[i + 16];
-                String bio = charray[i + 17];
+                String id = charray[i];
+                String name = charray[i + 1];
+                String chrclass = charray[i + 2];
+                String race = charray[i + 3];
+                String lvl = charray[i + 4];
+                String life = charray[i + 6];
+                String maxlife = charray[i + 5];
+                String energy =charray[i + 8];
+                String maxenergy = charray[i + 7];
+                String xp = charray[i + 10];
+                String max_xp = charray[i + 9];
+                String gold = charray[i + 11];
+                String force = charray[i+ 12];
+                String dexer = charray[i + 13];
+                String body = charray[i + 14];
+                String intel = charray[i + 15];
+                String charism = charray[i + 16];
+                String img = charray[i + 17];
+                String bio = charray[i + 18];
                 //control empty fields (to do)
-                Charcard current = new Charcard(name, chrclass, race,
-                lvl, life, energy, xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
+                Charcard current = new Charcard(id, name, chrclass, race,
+                lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
                 chardis.charcardconstructor(current);
                 current.fieldset(current);
             }
@@ -175,8 +180,25 @@ namespace ModuloUsuarios
 
             userdis.Show();
         }
+        //END DISPLAY CLASS
 
-
+        //EDIT CLASS
+        //Characters
+        //char to modify
+        public void Charmodify(String id,String aname, String aclass, String arace,
+            String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
+             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio) {
+            Edit useredit = new Edit();
+            useredit.charinfo(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, useredit, "char");
+            useredit.Show();
+        }
+        //char save changes
+        public void Charrewrite(String id, String aname, String aclass, String arace,
+            String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
+             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio) {
+            Caller_characters charsaver = new Caller_characters();
+            charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio);
+        }
 
 
         //ELIMINA LA VISTA DEL CONTROLADOR.
