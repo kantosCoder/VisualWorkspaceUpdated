@@ -200,7 +200,7 @@ namespace ModuloUsuarios
             var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.items);
                 pointer.picturedetailed.Image = replacer;
         }
-        //items
+        //ability
         public void abilitydetailload(String aname, String alvl, String atype, String alife, 
             String aenergy, String photo, String bio, Display target)
         {
@@ -235,6 +235,37 @@ namespace ModuloUsuarios
             pointer.attrs.Text = "";
             pointer.chardetails.Visible = true;
             var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.skill);
+            pointer.picturedetailed.Image = replacer;
+        }
+        //users
+        public void userdetailload(String aname, String atype, Display target)
+        {
+            name = aname;
+            type = atype;
+            pointer = target;
+            userdetailshow();
+        }
+
+        public void userdetailshow()
+        {
+            pointer.chardetail_name.Text = name;
+            pointer.chardetail_class.Text = type;
+            pointer.chardetail_race.Text = "";
+            pointer.chardetail_lvl.Text = "";
+            pointer.chardetail_life.Text = "";
+            pointer.chardetail_energy.Text = "";
+            pointer.chardetail_experience.Text = "";
+            pointer.chardetail_gold.Text = "";
+            pointer.chardetail_force.Text = "";
+            pointer.chardetail_dexer.Text = "";
+            pointer.chardetail_body.Text = "";
+            pointer.chardetail_intel.Text = "";
+            pointer.chardetail_charism.Text = "";
+            pointer.chardetail_bio.Text = "";
+            pointer.status.Text = "";
+            pointer.attrs.Text = "";
+            pointer.chardetails.Visible = true;
+            var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.user);
             pointer.picturedetailed.Image = replacer;
         }
         private void Back_Click(object sender, EventArgs e)

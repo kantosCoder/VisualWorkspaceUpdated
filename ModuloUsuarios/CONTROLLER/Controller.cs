@@ -153,7 +153,28 @@ namespace ModuloUsuarios
 
             abildis.Show();
         }
+        //users
+        public void Users()
+        {
+            Display userdis = new Display();
+            //CREACION DE ARRAYS
+            List<String> userarray = new List<String>();
+            Caller_users userreader = new Caller_users();
+            //LECTURA DE CRIATURAS
+            userarray = userreader.userloader(userarray);
+            //CREACION DE TARJETAS
+            for (int i = 0; i < userarray.Count; i = i + 2)
+            {
+                String name = userarray[i + 1];
+                String type = userarray[i];
+                //control empty fields (to do)
+                Usercard current = new Usercard(name, type, userdis);
+                userdis.usercardconstructor(current);
+                current.fieldset(current);
+            }
 
+            userdis.Show();
+        }
 
 
 

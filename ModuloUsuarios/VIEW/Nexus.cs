@@ -49,5 +49,11 @@ namespace ModuloUsuarios
             Invoker.controller.Abilities();
             this.Close();
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Users();
+            this.Close();
+        }
     }
 }
