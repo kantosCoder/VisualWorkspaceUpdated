@@ -22,7 +22,7 @@ namespace ModuloUsuarios.MODEL
             foreach (XmlElement node in charlist)
             {
                 //cabecera pers
-                array.Add(node.GetAttribute("id"));
+                array.Add(node.GetAttribute("Id"));
                 array.Add(node.GetAttribute("Nombre"));
                 array.Add(node.GetAttribute("Clase"));
                 array.Add(node.GetAttribute("Raza"));
@@ -135,7 +135,7 @@ namespace ModuloUsuarios.MODEL
             if (mode.Equals("modify"))
             {
                 //delete old node
-                root.RemoveChild(replaced);
+               root.RemoveChild(replaced);
             }
             charfile.Save("C:\\DAM\\Personajes.xml");
         }
