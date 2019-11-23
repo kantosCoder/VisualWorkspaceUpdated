@@ -126,11 +126,12 @@ namespace ModuloUsuarios
             }
         }
         //creatures
-        public void creaturedetailload(String aname, String alvl, String alife, String a_version, String dmg, String img, String bio, Display target)
+        public void creaturedetailload(String aname, String alvl, String alife, String malife, String a_version, String dmg, String img, String bio, Display target)
         {
             name = aname;
             lvl = alvl;
             life = alife;
+            maxlife = malife;
             damage = dmg;
             aversion = a_version;
             image = img;
@@ -145,12 +146,12 @@ namespace ModuloUsuarios
             pointer.chardetail_class.Text = "";
             pointer.chardetail_race.Text = "";
             pointer.chardetail_lvl.Text = lvl;
-            pointer.chardetail_life.Text = life;
+            pointer.chardetail_life.Text = "Vida: " + life + "/" + maxlife;
             pointer.chardetail_energy.Text = "";
             pointer.chardetail_experience.Text = "";
-            pointer.chardetail_gold.Text = gold;
-            pointer.chardetail_force.Text = damage;
-            pointer.chardetail_dexer.Text = aversion;
+            pointer.chardetail_gold.Text = "";
+            pointer.chardetail_force.Text = "Daño: "+damage;
+            pointer.chardetail_dexer.Text = "Aversion: "+aversion;
             pointer.chardetail_body.Text = "";
             pointer.chardetail_intel.Text = "";
             pointer.chardetail_charism.Text = "";

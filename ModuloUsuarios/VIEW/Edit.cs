@@ -52,15 +52,12 @@ namespace ModuloUsuarios
         //chars
         public void charinfo(String id, String aname, String aclass, String arace,
             String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
-             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio, Edit target, String kind)
+             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio, Edit target)
         {
             ident = id;
-            document = kind;
+            document = "char";
             pointer = target;
-            if (kind == "char")
-            {
                 chardetailload(aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio);
-            }
         }
     public void chardetailload(String aname, String aclass, String arace,
             String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
@@ -131,17 +128,97 @@ namespace ModuloUsuarios
                 pointer.imageedit.Image = replacer;
             }
         }
+
+        //creatures
+        public void creatureinfo(String id, String aname,
+            String alvl, String a_version, String alife, String malife, String bio, String dmg, String img, Edit target)
+        {
+            ident = id;
+            document = "creature";
+            pointer = target;
+                creaturedetailload(aname, alvl, a_version, alife, malife, bio, dmg, img);
+        }
+        public void creaturedetailload(String aname,
+            String alvl, String a_version, String alife, String malife, String bio, String dmg, String img)
+        {
+            name = aname;
+            lvl = alvl;
+            aversion = a_version;
+            life = alife;
+            maxlife = malife;
+            damage = dmg;
+            image = img;
+            biography = bio;
+            creaturedetailshow();
+        }
+
+        public void creaturedetailshow()
+        {
+            //EDIT FIELDS
+            pointer.namefield.Text = name;
+            pointer.classfield.Text = aversion;
+            pointer.racefield.Text = damage;
+            pointer.levelfield.Text = lvl;
+            pointer.lifefield.Text = life;
+            pointer.maxlifefield.Text = maxlife;
+            pointer.energyfield.Visible = false;
+            pointer.maxenergyfield.Visible = false;
+            pointer.experiencefield.Visible = false;
+            pointer.maxxpfield.Visible = false;
+            pointer.goldfield.Visible = false;
+            pointer.forcefield.Visible = false;
+            pointer.dexerityfield.Visible = false;
+            pointer.bodyfield.Visible = false;
+            pointer.intelfield.Visible = false;
+            pointer.charismfield.Visible = false;
+            pointer.biofield.Text = biography;
+            //TITLE TEXT
+            pointer.nameofedition.Text = "Edicion de criatura: " + name;
+            pointer.nameedit.Text = "Nombre";
+            pointer.leveledit.Text = "Nivel";
+            pointer.classedit.Text = "Aversion";
+            pointer.raceedit.Text = "Daño";
+            pointer.lifeedit.Text = "Vida actual/max";
+            pointer.energyedit.Text = "";
+            pointer.experienceedit.Text = "";
+            pointer.goldedit.Text = "";
+            pointer.forceedit.Text = "";
+            pointer.dexerityedit.Text = "";
+            pointer.bodyedit.Text = "";
+            pointer.inteledit.Text = "";
+            pointer.charismedit.Text = "";
+            pointer.attrs.Text = "";
+
+            try
+            {
+                pointer.imageedit.Image = Image.FromFile(image);
+            }
+            catch (Exception)
+            {
+                var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.creature);
+                pointer.imageedit.Image = replacer;
+            }
+        }
         private void Back_Click(object sender, EventArgs e)
         {
-            Invoker.controller.Chars();
-            this.Close();
+            if (document.Equals("char"))
+            {
+                Invoker.controller.Chars(false);
+                this.Close();
+            }
+            if (document.Equals("creature"))
+            {
+                Invoker.controller.Creatures();
+                this.Close();
+            }
         }
 
         private void savebutton_Click(object sender, EventArgs e)
         {
-            Invoker.controller.Chars();
-            if (document == "char")
+            
+            if (document.Equals("char"))
             {
+                Invoker.controller.Chars(true);
                 //insert popup to confirm?
                 //saves the data to the strings
                 name = pointer.namefield.Text;
@@ -161,7 +238,23 @@ namespace ModuloUsuarios
                 intel = pointer.intelfield.Text;
                 charism = pointer.charismfield.Text;
                 biography = pointer.biofield.Text;
-                Invoker.controller.Charrewrite(ident,name,chrclass,race,lvl,life,maxlife,energy,maxenergy,xp,max_xp,gold,force,dexer,body,intel,charism,image,biography);
+                image = pointer.imageedit.ImageLocation;
+                Invoker.controller.Charrewrite(ident,name,chrclass,race,lvl,life,maxlife,energy,maxenergy,xp,max_xp,gold,force,dexer,body,intel,charism,image,biography,"modify");
+            }
+            if (document.Equals("creature"))
+            {
+                Invoker.controller.Chars(true);
+                //insert popup to confirm?
+                //saves the data to the strings
+                name = pointer.namefield.Text;
+                aversion = pointer.classfield.Text;
+                damage = pointer.racefield.Text;
+                lvl = pointer.levelfield.Text;
+                life = pointer.lifefield.Text;
+                maxlife = pointer.maxlifefield.Text;
+                biography = pointer.biofield.Text;
+                image = pointer.imageedit.ImageLocation;
+                Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "modify");
             }
             this.Close();
         }

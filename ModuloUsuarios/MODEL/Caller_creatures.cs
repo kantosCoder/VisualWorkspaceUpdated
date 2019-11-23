@@ -21,6 +21,7 @@ namespace ModuloUsuarios.MODEL
             {
                 //start array 8pos
                 //cabecera criatura
+                array.Add(node.GetAttribute("Id"));
                 array.Add(node.GetAttribute("Nombre"));
                 array.Add(node.GetAttribute("Nivel"));
                 //efectos
@@ -32,6 +33,86 @@ namespace ModuloUsuarios.MODEL
                 array.Add(node.GetElementsByTagName("Imagen")[0].InnerText);
             }
             return array;
+        }
+        //MODIFICACION DE CRIATURAS
+        public void creaturerrewrite(String id, String aname,
+            String alvl, String a_version, String alife, String malife, String admg, String photo, String bio, String mode)
+        {
+            XmlDocument creaturefile = new XmlDocument();
+            creaturefile.Load("C:\\DAM\\Criaturas.xml");
+            XmlNodeList creatures = creaturefile.GetElementsByTagName("Criaturas");
+            XmlNode root = creaturefile.DocumentElement;
+            XmlNodeList charlist = ((XmlElement)creatures[0]).GetElementsByTagName("Criatura");
+            XmlElement replaced = creaturefile.CreateElement("Criatura");
+            foreach (XmlElement node in charlist)
+            {
+                //cabecera pers
+                if ((node.GetAttribute("Id").Equals(id)))
+                {
+                    replaced = node;
+
+                }
+
+            }
+            //new node
+            XmlElement replacer = creaturefile.CreateElement("Criatura");
+            //cabecera personaje
+            replacer.SetAttribute("Id", id);
+            replacer.SetAttribute("Nombre", aname);
+            replacer.SetAttribute("Nivel", alvl);
+            //atributos personaje
+            //append
+            XmlElement replacer_append = creaturefile.CreateElement("Aversion");
+            replacer_append.InnerText = a_version;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = creaturefile.CreateElement("Vida");
+            replacer_append.SetAttribute("Maxima", malife);
+            replacer_append.InnerText = alife;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = creaturefile.CreateElement("Bio");
+            replacer_append.InnerText = bio;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = creaturefile.CreateElement("Danyo_base");
+            replacer_append.InnerText = admg;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = creaturefile.CreateElement("Imagen");
+            replacer_append.InnerText = photo;
+            replacer.AppendChild(replacer_append);
+            //insertion to root
+            root.AppendChild(replacer);
+            if (mode.Equals("modify"))
+            {
+                //delete old node
+                root.RemoveChild(replaced);
+            }
+            creaturefile.Save("C:\\DAM\\Criaturas.xml");
+        }
+        //ELIMINACION DE CRIATURAS
+        public void creaturedestroy(String id)
+        {
+            XmlDocument creaturefile = new XmlDocument();
+            creaturefile.Load("C:\\DAM\\Criaturas.xml");
+            XmlNodeList creatures = creaturefile.GetElementsByTagName("Criaturas");
+            XmlNode root = creaturefile.DocumentElement;
+            XmlNodeList charlist = ((XmlElement)creatures[0]).GetElementsByTagName("Criatura");
+            XmlElement target = creaturefile.CreateElement("Criatura");
+            foreach (XmlElement node in charlist)
+            {
+                //cabecera pers
+                if ((node.GetAttribute("Id").Equals(id)))
+                {
+                    target = node;
+
+                }
+
+            }
+            //destroy node
+            root.RemoveChild(target);
+            creaturefile.Save("C:\\DAM\\Criaturas.xml");
         }
     }
 }

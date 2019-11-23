@@ -36,7 +36,7 @@ namespace ModuloUsuarios
         }
         //DISPLAY CLASS
         //characters
-        public void Chars()
+        public void Chars(Boolean redo)
         {
             Display chardis = new Display();
             //CREACION DE ARRAYS
@@ -45,35 +45,45 @@ namespace ModuloUsuarios
             //LECTURA DE PERSONAJES
             charray = charreader.charloader(charray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < charray.Count; i = i + 19)
+            void cardload()
             {
-                String id = charray[i];
-                String name = charray[i + 1];
-                String chrclass = charray[i + 2];
-                String race = charray[i + 3];
-                String lvl = charray[i + 4];
-                String life = charray[i + 6];
-                String maxlife = charray[i + 5];
-                String energy =charray[i + 8];
-                String maxenergy = charray[i + 7];
-                String xp = charray[i + 10];
-                String max_xp = charray[i + 9];
-                String gold = charray[i + 11];
-                String force = charray[i+ 12];
-                String dexer = charray[i + 13];
-                String body = charray[i + 14];
-                String intel = charray[i + 15];
-                String charism = charray[i + 16];
-                String img = charray[i + 17];
-                String bio = charray[i + 18];
-                //control empty fields (to do)
-                Charcard current = new Charcard(id, name, chrclass, race,
-                lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
-                chardis.charcardconstructor(current);
-                current.fieldset(current);
+                for (int i = 0; i < charray.Count; i = i + 19)
+                {
+                    String id = charray[i];
+                    String name = charray[i + 1];
+                    String chrclass = charray[i + 2];
+                    String race = charray[i + 3];
+                    String lvl = charray[i + 4];
+                    String life = charray[i + 6];
+                    String maxlife = charray[i + 5];
+                    String energy = charray[i + 8];
+                    String maxenergy = charray[i + 7];
+                    String xp = charray[i + 10];
+                    String max_xp = charray[i + 9];
+                    String gold = charray[i + 11];
+                    String force = charray[i + 12];
+                    String dexer = charray[i + 13];
+                    String body = charray[i + 14];
+                    String intel = charray[i + 15];
+                    String charism = charray[i + 16];
+                    String img = charray[i + 17];
+                    String bio = charray[i + 18];
+                    //control empty fields (to do)
+                    Charcard current = new Charcard(id, name, chrclass, race,
+                    lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, img, bio, chardis);
+                    chardis.charcardconstructor(current);
+                    current.fieldset(current);
+                }
+                chardis.Show();
             }
-
-            chardis.Show();
+            cardload();
+            /*refrescado...
+            if (redo == true)
+            {
+                chardis.Close();
+                chardis = new Display();
+                cardload();
+            }*/
         }
         //creatures
         public void Creatures()
@@ -85,17 +95,19 @@ namespace ModuloUsuarios
             //LECTURA DE CRIATURAS
             crearray = charreader.creatureloader(crearray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < crearray.Count; i = i + 8)
+            for (int i = 0; i < crearray.Count; i = i + 9)
             {
-                String name = crearray[i];
-                String lvl = crearray[i + 1];
-                String a_version = "Aversión: " + crearray[i + 2];
-                String life = "Vida: " + crearray[i + 4] + "/" + crearray[i + 3];
-                String bio = ""+ crearray[i + 5];
-                String dmg = "Daño base: " + crearray[i + 6];
-                String img = crearray[i + 6];
+                String id = crearray[i];
+                String name = crearray[i + 1];
+                String lvl = crearray[i + 2];
+                String a_version = crearray[i + 3];
+                String life = crearray[i + 5];
+                String malife = crearray[i + 4];
+                String bio = crearray[i + 6];
+                String dmg = crearray[i + 7];
+                String img = crearray[i + 8];
                 //control empty fields (to do)
-                Creaturecard current = new Creaturecard(name, lvl, a_version, life, dmg, img, bio, creaturedis);
+                Creaturecard current = new Creaturecard(id, name, lvl, a_version, life, malife, dmg, img, bio, creaturedis);
                 creaturedis.creaturecardconstructor(current);
                 current.fieldset(current);
             }
@@ -189,16 +201,77 @@ namespace ModuloUsuarios
             String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
              String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio) {
             Edit useredit = new Edit();
-            useredit.charinfo(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, useredit, "char");
+            useredit.charinfo(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, useredit);
             useredit.Show();
         }
         //char save changes
         public void Charrewrite(String id, String aname, String aclass, String arace,
             String alvl, String alife, String malife, String aenergy, String maenergy, String axp, String maxp, String agold,
-             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio) {
+             String aforce, String adexer, String abody, String aintel, String acharism, String img, String bio, String mode) {
             Caller_characters charsaver = new Caller_characters();
-            charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio);
+                if (mode.Equals("modify"))
+                {
+                    charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, "modify");
+                }
+                if (mode.Equals("create"))
+                {
+                charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, "modify");
+                }
+            }
+        //char destroy
+        public void Chardestroy(String id) {
+            Caller_characters chardestroyer = new Caller_characters();
+            chardestroyer.chardestroy(id);
         }
+        //Creatures
+        //creature to modify
+        public void Creaturemodify(String id, String aname,
+            String alvl, String a_version, String alife, String malife, String admg, String photo, String bio)
+        {
+            Edit creatureedit = new Edit();
+            creatureedit.creatureinfo(id, aname, alvl, malife, alife, a_version, bio, admg, photo, creatureedit);
+            creatureedit.Show();
+        }
+        //creature save changes
+        public void Creaturewrite(String id, String aname,
+            String alvl, String a_version, String alife, String malife, String admg, String photo, String bio, String mode)
+        {
+            Caller_creatures creaturesaver = new Caller_creatures();
+            if (mode.Equals("modify"))
+            {
+                creaturesaver.creaturerrewrite(id, aname, alvl, a_version, alife, malife, admg, photo, bio, "modify");
+            }
+            if (mode.Equals("create"))
+            {
+                creaturesaver.creaturerrewrite(id, aname, alvl, a_version, alife, malife, admg, photo, bio, "create");
+            }
+        }
+        //creature destroy
+        public void Creaturedestroy(String id)
+        {
+            Caller_creatures creaturedestroyer = new Caller_creatures();
+            creaturedestroyer.creaturedestroy(id);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //ELIMINA LA VISTA DEL CONTROLADOR.

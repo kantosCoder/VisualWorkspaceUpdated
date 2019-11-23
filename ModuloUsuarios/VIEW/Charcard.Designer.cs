@@ -183,6 +183,7 @@
             this.deleter_button.Size = new System.Drawing.Size(21, 23);
             this.deleter_button.TabIndex = 0;
             this.deleter_button.UseVisualStyleBackColor = true;
+            this.deleter_button.Click += new System.EventHandler(this.deleter_button_Click);
             // 
             // imagebox
             // 

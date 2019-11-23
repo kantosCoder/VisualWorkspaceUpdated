@@ -89,5 +89,10 @@ namespace ModuloUsuarios
             Invoker.controller.Charmodify(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, photoloc, biography);
             current.Close();
         }
+
+        private void deleter_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Chardestroy(ident);
+        }
     }
 }

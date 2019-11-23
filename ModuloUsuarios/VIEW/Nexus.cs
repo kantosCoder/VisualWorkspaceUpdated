@@ -23,7 +23,7 @@ namespace ModuloUsuarios
         }
         private void button1_Click(object sender, EventArgs e) //BOTON PERSONAJES
         {
-            Invoker.controller.Chars();
+            Invoker.controller.Chars(false);
             this.Close();
         }
         private void button6_Click(object sender, EventArgs e)

@@ -12,22 +12,25 @@ namespace ModuloUsuarios
 {
     public partial class Creaturecard : UserControl
     {
+        private String ident = "";
         private String name = "";
         private String lvl = "";
         private String life = "";
+        private String max_life = "";
         private String aversion = "";
         private String damage = "";
         private String photoloc = "";
         private String biography = "";
         private Display current;
 
-        public Creaturecard(String aname,
-            String alvl, String a_version, String alife, String admg, String photo, String bio, Display target)
+        public Creaturecard(String id, String aname,
+            String alvl, String a_version, String alife, String malife, String admg, String photo, String bio, Display target)
         {
-            
+            ident = id;
             name = aname;
             lvl = alvl;
             life = alife;
+            max_life = malife;
             aversion = a_version;
             damage = admg;
             current = target;
@@ -38,9 +41,9 @@ namespace ModuloUsuarios
         public void fieldset(Creaturecard current) {
             current.creaturename.Text = name;
             current.creaturelevel.Text = lvl;
-            current.creaturelife.Text = life;
-            current.creatureaversion.Text = aversion;
-            current.creaturebasedamage.Text = damage;
+            current.creaturelife.Text = "Vida: "+life+"/"+max_life;
+            current.creatureaversion.Text = "Aversion: "+aversion;
+            current.creaturebasedamage.Text = "Daño: "+damage;
             try
             {
                 current.creatureimage.Image = Image.FromFile(photoloc);
@@ -54,7 +57,19 @@ namespace ModuloUsuarios
         private void Creaturecard_Load(object sender, EventArgs e)
         {
             //CARGAR DATOS A DETALLE
-            current.creaturedetailload(name, lvl, life, aversion, damage, photoloc, biography, current);
+            current.creaturedetailload(name, lvl, life, max_life, aversion, damage, photoloc, biography, current);
+        }
+
+        private void modify_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Creaturemodify(ident, name, lvl, life, max_life, aversion, damage, photoloc, biography);
+            current.Close();
+        }
+
+        private void deleter_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Creaturedestroy(ident);
+            //refresh... current.Close();
         }
     }
 }
