@@ -215,7 +215,7 @@ namespace ModuloUsuarios
                 }
                 if (mode.Equals("create"))
                 {
-                charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, "modify");
+                charsaver.charrewrite(id, aname, aclass, arace, alvl, alife, malife, aenergy, maenergy, axp, maxp, agold, aforce, adexer, abody, aintel, acharism, img, bio, "create");
                 }
             }
         //char destroy

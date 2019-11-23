@@ -36,15 +36,15 @@ namespace ModuloUsuarios.MODEL
         }
         //MODIFICACION DE HABILIDADES
         public void abilityrewrite(String id, String aname,
-            String alvl, String a_version, String alife, String malife, String admg, String photo, String bio, String mode)
+            String alvl, String atype, String aenergy, String alife, String photo, String bio, String mode)
         {
             XmlDocument skillfile = new XmlDocument();
             skillfile.Load("C:\\DAM\\Habilidades.xml");
-            XmlNodeList creatures = skillfile.GetElementsByTagName("Habilidades");
+            XmlNodeList skills = skillfile.GetElementsByTagName("Habilidades");
             XmlNode root = skillfile.DocumentElement;
-            XmlNodeList charlist = ((XmlElement)creatures[0]).GetElementsByTagName("Habilidad");
+            XmlNodeList skilllist = ((XmlElement)skills[0]).GetElementsByTagName("Habilidad");
             XmlElement replaced = skillfile.CreateElement("Habilidad");
-            foreach (XmlElement node in charlist)
+            foreach (XmlElement node in skilllist)
             {
                 //cabecera pers
                 if ((node.GetAttribute("Id").Equals(id)))
@@ -54,32 +54,28 @@ namespace ModuloUsuarios.MODEL
 
             }
             //new node
-            XmlElement replacer = skillfile.CreateElement("Criatura");
+            XmlElement replacer = skillfile.CreateElement("Habilidad");
             //cabecera personaje
             replacer.SetAttribute("Id", id);
             replacer.SetAttribute("Nombre", aname);
             replacer.SetAttribute("Nivel", alvl);
+            replacer.SetAttribute("Nivel", atype);
             //atributos personaje
             //append
-            XmlElement replacer_append = skillfile.CreateElement("Aversion");
-            replacer_append.InnerText = a_version;
-            replacer.AppendChild(replacer_append);
-            //append
-            replacer_append = skillfile.CreateElement("Vida");
-            replacer_append.SetAttribute("Maxima", malife);
+            XmlElement replacer_append = skillfile.CreateElement("Vida");
             replacer_append.InnerText = alife;
             replacer.AppendChild(replacer_append);
             //append
-            replacer_append = skillfile.CreateElement("Bio");
-            replacer_append.InnerText = bio;
-            replacer.AppendChild(replacer_append);
-            //append
-            replacer_append = skillfile.CreateElement("Danyo_base");
-            replacer_append.InnerText = admg;
+            replacer_append = skillfile.CreateElement("Energia");
+            replacer_append.InnerText = aenergy;
             replacer.AppendChild(replacer_append);
             //append
             replacer_append = skillfile.CreateElement("Imagen");
             replacer_append.InnerText = photo;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = skillfile.CreateElement("Descripcion");
+            replacer_append.InnerText = bio;
             replacer.AppendChild(replacer_append);
             //insertion to root
             root.AppendChild(replacer);
@@ -88,18 +84,18 @@ namespace ModuloUsuarios.MODEL
                 //delete old node
                 root.RemoveChild(replaced);
             }
-            skillfile.Save("C:\\DAM\\Criaturas.xml");
+            skillfile.Save("C:\\DAM\\Habilidades.xml");
         }
         //ELIMINACION DE CRIATURAS
-        public void creaturedestroy(String id)
+        public void abilitydestroy(String id)
         {
-            XmlDocument creaturefile = new XmlDocument();
-            creaturefile.Load("C:\\DAM\\Criaturas.xml");
-            XmlNodeList creatures = creaturefile.GetElementsByTagName("Criaturas");
-            XmlNode root = creaturefile.DocumentElement;
-            XmlNodeList charlist = ((XmlElement)creatures[0]).GetElementsByTagName("Criatura");
-            XmlElement target = creaturefile.CreateElement("Criatura");
-            foreach (XmlElement node in charlist)
+            XmlDocument skillfile = new XmlDocument();
+            skillfile.Load("C:\\DAM\\Habilidades.xml");
+            XmlNodeList skills = skillfile.GetElementsByTagName("Habilidades");
+            XmlNode root = skillfile.DocumentElement;
+            XmlNodeList skilllist = ((XmlElement)skills[0]).GetElementsByTagName("Habilidad");
+            XmlElement target = skillfile.CreateElement("Habilidad");
+            foreach (XmlElement node in skilllist)
             {
                 //cabecera pers
                 if ((node.GetAttribute("Id").Equals(id)))
@@ -111,7 +107,7 @@ namespace ModuloUsuarios.MODEL
             }
             //destroy node
             root.RemoveChild(target);
-            creaturefile.Save("C:\\DAM\\Criaturas.xml");
+            skillfile.Save("C:\\DAM\\Habilidades.xml");
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ModuloUsuarios
         {
             
         }
-        private void button1_Click(object sender, EventArgs e) //BOTON PERSONAJES
+        private void button1_Click(object sender, EventArgs e)
         {
             Invoker.controller.Chars(false);
             this.Close();
