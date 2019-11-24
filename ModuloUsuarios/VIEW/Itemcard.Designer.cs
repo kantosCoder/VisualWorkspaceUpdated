@@ -189,6 +189,7 @@
             this.modify_button.Size = new System.Drawing.Size(21, 22);
             this.modify_button.TabIndex = 1;
             this.modify_button.UseVisualStyleBackColor = true;
+            this.modify_button.Click += new System.EventHandler(this.modify_button_Click);
             // 
             // deleter_button
             // 
@@ -200,6 +201,7 @@
             this.deleter_button.Size = new System.Drawing.Size(21, 23);
             this.deleter_button.TabIndex = 0;
             this.deleter_button.UseVisualStyleBackColor = true;
+            this.deleter_button.Click += new System.EventHandler(this.deleter_button_Click);
             // 
             // Itemcard
             // 

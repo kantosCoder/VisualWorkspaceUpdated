@@ -124,19 +124,21 @@ namespace ModuloUsuarios
             //LECTURA DE CRIATURAS
             itemarray = itemreader.itemloader(itemarray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < itemarray.Count; i = i + 10)
+            for (int i = 0; i < itemarray.Count; i = i + 11)
             {
-                String type = itemarray[i];
-                String value = itemarray[i + 1]+" gold";
-                String lvl = itemarray[i + 2];
-                String name = itemarray[i+ 3];
-                String space = "("+itemarray[i + 4]+" slots)";
-                String weight = itemarray[i + 5]+"kg";
-                String armor = "Armadura: "+itemarray[i + 6];
-                String dmg = "Daño: " + itemarray[i + 8]+"("+itemarray[i + 7]+")";
-                String ability = "Habilidades: "+itemarray[i + 9];
+                String id = itemarray[i];
+                String type = itemarray[i + 1];
+                String value = itemarray[i + 2];
+                String lvl = itemarray[i + 3];
+                String name = itemarray[i+ 4];
+                String space = itemarray[i + 5];
+                String weight = itemarray[i + 6];
+                String armor = itemarray[i + 7];
+                String dmg = itemarray[i + 9];
+                String dmgtype = itemarray[i + 8];
+                String ability = itemarray[i + 10];
                 //control empty fields (to do)
-                Itemcard current = new Itemcard(type,value,lvl,name, space,weight,armor,dmg,ability,itemdis);
+                Itemcard current = new Itemcard(id, type,value,lvl,name, space,weight,armor,dmg,dmgtype,ability,itemdis);
                 itemdis.itemcardconstructor(current);
                 current.fieldset(current);
             }
@@ -153,17 +155,18 @@ namespace ModuloUsuarios
             //LECTURA DE CRIATURAS
             abilarray = itemreader.abilityloader(abilarray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < abilarray.Count; i = i + 7)
+            for (int i = 0; i < abilarray.Count; i = i + 8)
             {
-                String name = abilarray[i];
-                String lvl = abilarray[i + 1];
-                String type = abilarray[i + 2];
-                String life = abilarray[i + 3];
-                String energy = abilarray[i + 4];
-                String img = abilarray[i + 5];
-                String bio = abilarray[i + 6];
+                String id = abilarray[i];
+                String name = abilarray[i + 1];
+                String lvl = abilarray[i + 2];
+                String type = abilarray[i + 3];
+                String life = abilarray[i + 4];
+                String energy = abilarray[i + 5];
+                String img = abilarray[i + 6];
+                String bio = abilarray[i + 7];
                 //control empty fields (to do)
-                Abilitycard current = new Abilitycard(name, lvl, type, life, energy, img, bio, abildis);
+                Abilitycard current = new Abilitycard(id, name, lvl, type, life, energy, img, bio, abildis);
                 abildis.abilitycardconstructor(current);
                 current.fieldset(current);
             }
@@ -180,12 +183,13 @@ namespace ModuloUsuarios
             //LECTURA DE CRIATURAS
             userarray = userreader.userloader(userarray);
             //CREACION DE TARJETAS
-            for (int i = 0; i < userarray.Count; i = i + 2)
+            for (int i = 0; i < userarray.Count; i = i + 3)
             {
+                String pass = userarray[i + 2];
                 String name = userarray[i + 1];
                 String type = userarray[i];
                 //control empty fields (to do)
-                Usercard current = new Usercard(name, type, userdis);
+                Usercard current = new Usercard(name, type, pass, userdis);
                 userdis.usercardconstructor(current);
                 current.fieldset(current);
             }
@@ -252,8 +256,91 @@ namespace ModuloUsuarios
             Caller_creatures creaturedestroyer = new Caller_creatures();
             creaturedestroyer.creaturedestroy(id);
         }
-
-
+        //Abilities
+        //ability to modify
+        public void Abilitymodify(String id, String aname,
+            String alvl, String atype, String alife, String aenergy, String photo, String bio)
+        {
+            Edit abilityedit = new Edit();
+            abilityedit.abilityinfo(id, aname, alvl, atype, alife, aenergy, photo, bio, abilityedit);
+            abilityedit.Show();
+        }
+        //ability save changes
+        public void Abilitywrite(String id, String aname,
+            String alvl, String atype, String alife, String aenergy, String photo, String bio, String mode)
+        {
+            Caller_abilities abilitysaver = new Caller_abilities();
+            if (mode.Equals("modify"))
+            {
+                abilitysaver.abilityrewrite(id, aname, alvl, atype, alife, aenergy, photo, bio, "modify");
+            }
+            if (mode.Equals("create"))
+            {
+                abilitysaver.abilityrewrite(id, aname, alvl, atype, alife, aenergy, photo, bio, "create");
+            }
+        }
+        //ability destroy
+        public void Abilitydestroy(String id)
+        {
+            Caller_abilities abilitydestroyer = new Caller_abilities();
+            abilitydestroyer.abilitydestroy(id);
+        }
+        //Items
+        //item to modify
+        public void Itemmodify(String id, String atype, String avalue, String alvl, String aname,
+            String aspace, String aweight, String a_rmor, String admg, String dmgtype, String a_bility)
+        {
+            Edit itemedit = new Edit();
+            itemedit.iteminfo(id, atype, avalue, alvl, aname, aspace, aweight, a_rmor, admg, dmgtype, a_bility, itemedit);
+            itemedit.Show();
+        }
+        //item save changes
+        public void Itemwrite(String id, String atype, String avalue, String alvl, String aname,
+            String aspace, String aweight, String a_rmor, String admg, String dmgtype, String a_bility, String mode)
+        {
+            Caller_items itemsaver = new Caller_items();
+            if (mode.Equals("modify"))
+            {
+                itemsaver.itemrewrite(id, atype, avalue, alvl, aname, aspace, aweight, a_rmor, admg, dmgtype, a_bility, "modify");
+            }
+            if (mode.Equals("create"))
+            {
+                itemsaver.itemrewrite(id, atype, avalue, alvl, aname, aspace, aweight, a_rmor, admg, dmgtype, a_bility, "create");
+            }
+        }
+        //item destroy
+        public void Itemdestroy(String id)
+        {
+            Caller_items itemdestroyer = new Caller_items();
+            itemdestroyer.itemdestroy(id);
+        }
+        //Users
+        //user to modify
+        public void Usermodify(String arole, String anick, String apass)
+        {
+            Edit useredit = new Edit();
+            useredit.userinfo(arole, anick, apass, useredit);
+            useredit.Show();
+        }
+        //user save changes
+        public void Userwrite(String arole, String anick, String apass, String oldpass, String mode)
+        {
+            Caller_users itemsaver = new Caller_users();
+            if (mode.Equals("modify"))
+            {
+                itemsaver.userrewrite(arole, anick, apass, oldpass, "modify");
+            }
+            if (mode.Equals("create"))
+            {
+                itemsaver.userrewrite(arole, anick, apass, oldpass, "create");
+            }
+        }
+        //user destroy
+        public void Userdestroy(String id)
+        {
+            Caller_users userdestroyer = new Caller_users();
+            userdestroyer.userdestroy(id);
+        }
 
 
 

@@ -12,6 +12,7 @@ namespace ModuloUsuarios
 {
     public partial class Itemcard : UserControl
     {
+        private String ident = "";
         private String name = "";
         private String lvl = "";
         private String type = "";
@@ -21,11 +22,13 @@ namespace ModuloUsuarios
         private String armor = "";
         private String ability = "";
         private String damage = "";
+        private String damagetype = "";
         private Display current;
 
-        public Itemcard(String atype, String avalue, String alvl, String aname, 
-            String aspace, String aweight, String a_rmor, String admg, String a_bility, Display target)
+        public Itemcard(String id, String atype, String avalue, String alvl, String aname, 
+            String aspace, String aweight, String a_rmor, String admg, String dmgtype, String a_bility, Display target)
         {
+            ident = id;
             type = atype;
             value = avalue;
             lvl = alvl;
@@ -35,18 +38,19 @@ namespace ModuloUsuarios
             armor = a_rmor;
             ability = a_bility;
             damage = admg;
+            damagetype = dmgtype;
             current = target;
             InitializeComponent();
         }
         public void fieldset(Itemcard current) {
             current.itemname.Text = name;
             current.itemtype.Text = type;
-            current.itemvalue.Text = value;
+            current.itemvalue.Text = value+" Golds";
             current.itemlevel.Text = lvl;
-            current.itemspace.Text = space;
-            current.itemweight.Text = weight;
-            current.itemdamage.Text = damage;
-            current.itemarmor.Text = armor;
+            current.itemspace.Text = space+"slots";
+            current.itemweight.Text = weight+"kg";
+            current.itemdamage.Text = "Daño: "+damage;
+            current.itemarmor.Text = "Armadura: "+armor;
                 //items would not load custom images
                 var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.items);
                 current.creatureimage.Image = replacer;
@@ -54,7 +58,18 @@ namespace ModuloUsuarios
 
         private void Item_load(object sender, EventArgs e)
         {
-            current.itemdetailload(type,value,lvl,name,space,weight,armor,damage,ability,current);
+            current.itemdetailload(type,value,lvl,name,space,weight,armor,damage,damagetype,ability,current);
+        }
+
+        private void modify_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Itemmodify(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability);
+            current.Close();
+        }
+
+        private void deleter_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Itemdestroy(ident);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ModuloUsuarios.MODEL
             {
                 //start array 9pos
                 //cabecera items
+                array.Add(node.GetElementsByTagName("Id")[0].InnerText);
                 array.Add(node.GetAttribute("Tipo"));
                 array.Add(node.GetAttribute("Valor"));
                 array.Add(node.GetAttribute("Nivel"));
@@ -35,6 +36,96 @@ namespace ModuloUsuarios.MODEL
                 array.Add(node.GetElementsByTagName("Habilidad")[0].InnerText); //explode? ":" para separarlas?
             }
             return array;
+        }
+        //MODIFICACION DE ITEMS
+        public void itemrewrite(String id, String atype, String avalue, String alvl, String aname,
+            String aspace, String aweight, String a_rmor, String admg, String dmgtype, String a_bility, String mode)
+        {
+            XmlDocument itemfile = new XmlDocument();
+            itemfile.Load("C:\\DAM\\Items.xml");
+            XmlNodeList items = itemfile.GetElementsByTagName("Items");
+            XmlNode root = itemfile.DocumentElement;
+            XmlNodeList itemlist = ((XmlElement)items[0]).GetElementsByTagName("Item");
+            XmlElement replaced = itemfile.CreateElement("Item");
+            foreach (XmlElement node in itemlist)
+            {
+                //cabecera item
+                if ((node.GetElementsByTagName("Id")[0].InnerText.Equals(id)))
+                {
+                    replaced = node;
+                }
+
+            }
+            //new node
+            XmlElement replacer = itemfile.CreateElement("Item");
+            //cabecera habilidad
+            replacer.SetAttribute("Tipo", atype);
+            replacer.SetAttribute("Valor", avalue);
+            replacer.SetAttribute("Nivel", alvl);
+            //atributos habilidad
+            //append
+            XmlElement replacer_append = itemfile.CreateElement("Id");
+            replacer_append.InnerText = id;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Nombre");
+            replacer_append.InnerText = aname;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Espacio");
+            replacer_append.InnerText = aspace;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Peso");
+            replacer_append.InnerText = aweight;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Armadura");
+            replacer_append.InnerText = a_rmor;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Daño");
+            replacer_append.SetAttribute("tipo", dmgtype);
+            replacer_append.InnerText = admg;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = itemfile.CreateElement("Acciones_esp");
+            //append of append
+            XmlElement append_append = itemfile.CreateElement("Habilidad");
+            append_append.InnerText = a_bility;
+            replacer_append.AppendChild(append_append);
+            replacer.AppendChild(replacer_append);
+            //insertion to root
+            root.AppendChild(replacer);
+            if (mode.Equals("modify"))
+            {
+                //delete old node
+                root.RemoveChild(replaced);
+            }
+            itemfile.Save("C:\\DAM\\Items.xml");
+        }
+        //ELIMINACION DE ITEMS
+        public void itemdestroy(String id)
+        {
+            XmlDocument itemfile = new XmlDocument();
+            itemfile.Load("C:\\DAM\\Items.xml");
+            XmlNodeList items = itemfile.GetElementsByTagName("Items");
+            XmlNode root = itemfile.DocumentElement;
+            XmlNodeList itemlist = ((XmlElement)items[0]).GetElementsByTagName("Item");
+            XmlElement target = itemfile.CreateElement("Item");
+            foreach (XmlElement node in itemlist)
+            {
+                //cabecera item
+                if ((node.GetElementsByTagName("Id")[0].InnerText.Equals(id)))
+                {
+                    target = node;
+
+                }
+
+            }
+            //destroy node
+            root.RemoveChild(target);
+            itemfile.Save("C:\\DAM\\Items.xml");
         }
     }
 }

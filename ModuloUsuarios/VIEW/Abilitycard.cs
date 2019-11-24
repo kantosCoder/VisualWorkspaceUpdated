@@ -12,6 +12,7 @@ namespace ModuloUsuarios
 {
     public partial class Abilitycard : UserControl
     {
+        private String ident = "";
         private String name = "";
         private String lvl = "";
         private String type = "";
@@ -22,10 +23,10 @@ namespace ModuloUsuarios
         private String life = "";
         private Display current;
 
-        public Abilitycard(String aname, String alvl, String atype, String alife, 
+        public Abilitycard(String id, String aname, String alvl, String atype, String alife, 
             String aenergy, String photo, String bio, Display target)
         {
-            
+            ident = id;
             name = aname;
             lvl = alvl;
             type = atype;
@@ -56,5 +57,15 @@ namespace ModuloUsuarios
             current.abilitydetailload(name, lvl, type, life, energy, photoloc, biography, current);
         }
 
+        private void modify_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Abilitymodify(ident, name, lvl, type, life, energy, photoloc, biography);
+            current.Close();
+        }
+
+        private void deleter_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Abilitydestroy(ident);
+        }
     }
 }

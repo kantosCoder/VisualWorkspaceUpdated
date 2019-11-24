@@ -36,7 +36,7 @@ namespace ModuloUsuarios.MODEL
         }
         //MODIFICACION DE HABILIDADES
         public void abilityrewrite(String id, String aname,
-            String alvl, String atype, String aenergy, String alife, String photo, String bio, String mode)
+            String alvl, String atype, String alife, String aenergy, String photo, String bio, String mode)
         {
             XmlDocument skillfile = new XmlDocument();
             skillfile.Load("C:\\DAM\\Habilidades.xml");
@@ -46,7 +46,7 @@ namespace ModuloUsuarios.MODEL
             XmlElement replaced = skillfile.CreateElement("Habilidad");
             foreach (XmlElement node in skilllist)
             {
-                //cabecera pers
+                //cabecera habil
                 if ((node.GetAttribute("Id").Equals(id)))
                 {
                     replaced = node;
@@ -55,12 +55,12 @@ namespace ModuloUsuarios.MODEL
             }
             //new node
             XmlElement replacer = skillfile.CreateElement("Habilidad");
-            //cabecera personaje
+            //cabecera habilidad
             replacer.SetAttribute("Id", id);
             replacer.SetAttribute("Nombre", aname);
             replacer.SetAttribute("Nivel", alvl);
-            replacer.SetAttribute("Nivel", atype);
-            //atributos personaje
+            replacer.SetAttribute("Tipo", atype);
+            //atributos habilidad
             //append
             XmlElement replacer_append = skillfile.CreateElement("Vida");
             replacer_append.InnerText = alife;
@@ -86,7 +86,7 @@ namespace ModuloUsuarios.MODEL
             }
             skillfile.Save("C:\\DAM\\Habilidades.xml");
         }
-        //ELIMINACION DE CRIATURAS
+        //ELIMINACION DE HABILIDADES
         public void abilitydestroy(String id)
         {
             XmlDocument skillfile = new XmlDocument();
@@ -97,7 +97,7 @@ namespace ModuloUsuarios.MODEL
             XmlElement target = skillfile.CreateElement("Habilidad");
             foreach (XmlElement node in skilllist)
             {
-                //cabecera pers
+                //cabecera habil
                 if ((node.GetAttribute("Id").Equals(id)))
                 {
                     target = node;

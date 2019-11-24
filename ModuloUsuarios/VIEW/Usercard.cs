@@ -14,13 +14,15 @@ namespace ModuloUsuarios
     {
         private String name = "";
         private String type = "";
+        private String password = "";
         private Display current;
 
-        public Usercard(String aname, String atype, Display target)
+        public Usercard(String aname, String atype, String pass, Display target)
         {
             
             name = aname;
             type = atype;
+            password = pass;
             current = target;
             InitializeComponent();
         }
@@ -34,6 +36,17 @@ namespace ModuloUsuarios
         private void Usercard_load(object sender, EventArgs e)
         {
             current.userdetailload(name,type,current);
+        }
+
+        private void modify_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Usermodify(type,name,password);
+            current.Close();
+        }
+
+        private void deleter_button_Click(object sender, EventArgs e)
+        {
+            Invoker.controller.Userdestroy(name);
         }
     }
 }

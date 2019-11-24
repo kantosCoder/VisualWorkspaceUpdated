@@ -22,6 +22,7 @@ namespace ModuloUsuarios
         private String life = "";
         private String maxlife = "";
         private String damage = "";
+        private String damagetype = "";
         private String aversion = "";
         private String energy = "";
         private String maxenergy = "";
@@ -169,7 +170,7 @@ namespace ModuloUsuarios
         }
         //items
         public void itemdetailload(String atype, String avalue, String alvl, String aname,
-            String aspace, String aweight, String a_rmor, String admg, String a_bility, Display target)
+            String aspace, String aweight, String a_rmor, String admg, String dmgtype, String a_bility, Display target)
         {
             type = atype;
             value = avalue;
@@ -180,6 +181,7 @@ namespace ModuloUsuarios
             armor = a_rmor;
             ability = a_bility;
             damage = admg;
+            damagetype = dmgtype;
             pointer = target;
             //metodo relacion habilidades...
             itemdetailshow();
@@ -194,13 +196,13 @@ namespace ModuloUsuarios
             pointer.chardetail_life.Text = "";
             pointer.chardetail_energy.Text = "";
             pointer.chardetail_experience.Text = "";
-            pointer.chardetail_gold.Text = value;
-            pointer.chardetail_force.Text = damage;
-            pointer.chardetail_dexer.Text = armor;
-            pointer.chardetail_body.Text = weight + space;
+            pointer.chardetail_gold.Text = "valor: "+value;
+            pointer.chardetail_force.Text = "Daño: "+damage+"("+damagetype+")";
+            pointer.chardetail_dexer.Text = "Armadura: "+armor;
+            pointer.chardetail_body.Text = weight+"kg" + "("+space+" slots)";
             pointer.chardetail_intel.Text = "";
             pointer.chardetail_charism.Text = "";
-            pointer.chardetail_bio.Text = ability;
+            pointer.chardetail_bio.Text = "Habilidades: "+ability;
             pointer.status.Text = "";
             pointer.attrs.Text = "Propiedades";
             pointer.chardetails.Visible = true;

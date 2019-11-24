@@ -50,7 +50,7 @@ namespace ModuloUsuarios
             }
                 return valid;
         }
-        //LECTURA DE ITEMS
+        //LECTURA DE USUARIOS
         public List<String> userloader(List<String> array)
         {
             XmlDocument userfile = new XmlDocument();
@@ -64,10 +64,76 @@ namespace ModuloUsuarios
                 //start array 3pos
                 //cabecera users
                 array.Add(node.GetAttribute("rol"));
-                //atributos
+                //nombre
                 array.Add(node.GetElementsByTagName("nickname")[0].InnerText);
+                //pass
+                array.Add(node.GetElementsByTagName("pass")[0].InnerText);
             }
             return array;
+        }
+        //MODIFICACION DE USUARIOS
+        public void userrewrite(String arole, String anick, String apass, String oldpass, String mode)
+        {
+            XmlDocument userfile = new XmlDocument();
+            userfile.Load("C:\\DAM\\usuarios.xml");
+            XmlNodeList users = userfile.GetElementsByTagName("users");
+            XmlNode root = userfile.DocumentElement;
+            XmlNodeList userlist = ((XmlElement)users[0]).GetElementsByTagName("usuario");
+            XmlElement replaced = userfile.CreateElement("usuario");
+            //comprobar que la oldpass es buena popup que no y retorno
+            foreach (XmlElement node in userlist)
+            {
+                //comprobar que no sea el ultimo admin
+                //cabecera habil
+                if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(anick)))
+                {
+                    replaced = node;
+                }
+
+            }
+            //new node
+            XmlElement replacer = userfile.CreateElement("Habilidad");
+            //cabecera habilidad
+            replacer.SetAttribute("rol", arole);
+            //atributos habilidad
+            //append
+            XmlElement replacer_append = userfile.CreateElement("nickname");
+            replacer_append.InnerText = anick;
+            replacer.AppendChild(replacer_append);
+            //append
+            replacer_append = userfile.CreateElement("pass");
+            replacer_append.InnerText = apass;
+            replacer.AppendChild(replacer_append);
+            //insertion to root
+            root.AppendChild(replacer);
+            if (mode.Equals("modify"))
+            {
+                //delete old node
+                root.RemoveChild(replaced);
+            }
+            userfile.Save("C:\\DAM\\usuarios.xml");
+        }
+        //ELIMINACION DE USUARIOS
+        public void userdestroy(String id)
+        {
+            XmlDocument userfile = new XmlDocument();
+            userfile.Load("C:\\DAM\\usuarios.xml");
+            XmlNodeList users = userfile.GetElementsByTagName("users");
+            XmlNode root = userfile.DocumentElement;
+            XmlNodeList userlist = ((XmlElement)users[0]).GetElementsByTagName("usuario");
+            XmlElement target = userfile.CreateElement("usuario");
+            foreach (XmlElement node in userfile)
+            {
+                //cabecera habil
+                if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(id)))
+                {
+                    target = node;
+                }
+
+            }
+            //destroy node
+            root.RemoveChild(target);
+            userfile.Save("C:\\DAM\\usuarios.xml");
         }
     }
 }
