@@ -10,6 +10,8 @@ namespace ModuloUsuarios.MODEL
     //MODELO DE PERSONAJES
     class Caller_characters
     {
+        Random random = new Random();
+        int randomNumber = 0;
         //LECTURA DE PERSONAJES
         public List<String> charloader(List<String> array)
         {
@@ -65,12 +67,25 @@ namespace ModuloUsuarios.MODEL
                     replaced = node;
 
                 }
+                else
+                {
+                    mode = "create";
+                }
 
             }
             //new node
             XmlElement replacer = charfile.CreateElement("Personaje");
             //cabecera personaje
-            replacer.SetAttribute("Id", id);
+            if (mode.Equals("create"))
+            {
+                randomNumber = random.Next(10000, 999999);
+                String newid = randomNumber.ToString();
+                replacer.SetAttribute("Id", newid);
+            }
+            else
+            {
+                replacer.SetAttribute("Id", id);
+            }
             replacer.SetAttribute("Nombre", aname);
             replacer.SetAttribute("Clase", aclass);
             replacer.SetAttribute("Raza", arace);

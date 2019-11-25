@@ -29,6 +29,7 @@ namespace ModuloUsuarios
                     {
                         role = reader.GetAttribute("rol");
                     }
+
                 }
                 // reads the element value
                 else if (reader.NodeType == XmlNodeType.Text)
@@ -88,7 +89,9 @@ namespace ModuloUsuarios
                 if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(anick)))
                 {
                     replaced = node;
+                    
                 }
+                else { mode = "create"; }
 
             }
             //new node

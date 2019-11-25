@@ -10,6 +10,8 @@ namespace ModuloUsuarios.MODEL
     //MODELO DE ITEMS
     class Caller_items
     {
+        Random random = new Random();
+        int randomNumber = 0;
         //LECTURA DE ITEMS
         public List<String> itemloader(List<String> array){
             XmlDocument itemfile = new XmlDocument();
@@ -54,6 +56,10 @@ namespace ModuloUsuarios.MODEL
                 {
                     replaced = node;
                 }
+                else
+                {
+                    mode = "create";
+                }
 
             }
             //new node
@@ -65,7 +71,18 @@ namespace ModuloUsuarios.MODEL
             //atributos habilidad
             //append
             XmlElement replacer_append = itemfile.CreateElement("Id");
-            replacer_append.InnerText = id;
+            //cabecera personaje
+            if (mode.Equals("create"))
+            {
+                randomNumber = random.Next(10000, 999999);
+                String newid = randomNumber.ToString();
+                replacer_append.InnerText = newid;
+            }
+            else
+            {
+                replacer_append.InnerText = id;
+            }
+            
             replacer.AppendChild(replacer_append);
             //append
             replacer_append = itemfile.CreateElement("Nombre");

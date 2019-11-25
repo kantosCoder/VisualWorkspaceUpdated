@@ -10,6 +10,8 @@ namespace ModuloUsuarios.MODEL
     //MODELO DE HABILIDADES
     class Caller_abilities
     {
+        Random random = new Random();
+        int randomNumber = 0; 
         //LECTURA DE HABILIDADES
         public List<String> abilityloader(List<String> array){
             XmlDocument skillfile = new XmlDocument();
@@ -51,12 +53,25 @@ namespace ModuloUsuarios.MODEL
                 {
                     replaced = node;
                 }
+                else
+                {
+                    mode = "create";
+                }
 
             }
             //new node
             XmlElement replacer = skillfile.CreateElement("Habilidad");
             //cabecera habilidad
-            replacer.SetAttribute("Id", id);
+            if (mode.Equals("create"))
+            {
+                randomNumber = random.Next(10000, 999999);
+                String newid = randomNumber.ToString();
+                replacer.SetAttribute("Id", newid);
+            }
+            else
+            {
+                replacer.SetAttribute("Id", id);
+            }
             replacer.SetAttribute("Nombre", aname);
             replacer.SetAttribute("Nivel", alvl);
             replacer.SetAttribute("Tipo", atype);

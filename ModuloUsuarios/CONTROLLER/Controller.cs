@@ -19,7 +19,7 @@ namespace ModuloUsuarios
             Login logwin = new Login();
             logwin.Show();
             //AUTORELLENADO DE PASS(SOLO DEBUG)
-            logwin.autofill();
+            //logwin.autofill();
             //FIN AUTORRELLENADO DE PASS
         }
         //lanzar otras ventanas

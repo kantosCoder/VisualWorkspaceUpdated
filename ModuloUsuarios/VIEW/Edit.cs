@@ -495,8 +495,9 @@ namespace ModuloUsuarios
                     }
                     if (checker.getmode().Equals("create"))
                     {
-                        checker.setmode("modify");
+                        
                         Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "create");
+                        checker.setmode("modify");
                     }
                     Invoker.controller.Chars(false);
                 }
@@ -528,8 +529,9 @@ namespace ModuloUsuarios
 
                     if (checker.getmode().Equals("create"))
                     {
-                        checker.setmode("modify");
+                        
                         Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "create");
+                        checker.setmode("modify");
                     }
                     Invoker.controller.Creatures();
                 }
@@ -563,8 +565,9 @@ namespace ModuloUsuarios
 
                     if (checker.getmode().Equals("create"))
                     {
-                        checker.setmode("modify");
+                        
                         Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "create");
+                        checker.setmode("modify");
                     }
                     Invoker.controller.Abilities();
                 }
@@ -599,8 +602,9 @@ namespace ModuloUsuarios
                     }
                     if (checker.getmode().Equals("create"))
                     {
-                        checker.setmode("modify");
+                        
                         Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "create");
+                        checker.setmode("modify");
                     }
                     Invoker.controller.Items();
                 }
@@ -635,8 +639,9 @@ namespace ModuloUsuarios
                     }
                     if (checker.getmode().Equals("create"))
                     {
-                        checker.setmode("modify");
+                        
                         Invoker.controller.Userwrite(role, nick, pass, oldpass, "create");
+                        checker.setmode("modify");
                     }
                     Invoker.controller.Users();
                 }

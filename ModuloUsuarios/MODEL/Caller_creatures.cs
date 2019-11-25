@@ -10,6 +10,8 @@ namespace ModuloUsuarios.MODEL
     //MODELO DE CRIATURAS
     class Caller_creatures
     {
+        Random random = new Random();
+        int randomNumber = 0;
         //LECTURA DE CRIATURAS
         public List<String> creatureloader(List<String> array){
             XmlDocument creatfile = new XmlDocument();
@@ -52,12 +54,25 @@ namespace ModuloUsuarios.MODEL
                     replaced = node;
 
                 }
+                else
+                {
+                    mode = "create";
+                }
 
             }
             //new node
             XmlElement replacer = creaturefile.CreateElement("Criatura");
             //cabecera personaje
-            replacer.SetAttribute("Id", id);
+            if (mode.Equals("create"))
+            {
+                randomNumber = random.Next(10000, 999999);
+                String newid = randomNumber.ToString();
+                replacer.SetAttribute("Id", newid);
+            }
+            else
+            {
+                replacer.SetAttribute("Id", id);
+            }
             replacer.SetAttribute("Nombre", aname);
             replacer.SetAttribute("Nivel", alvl);
             //atributos personaje
