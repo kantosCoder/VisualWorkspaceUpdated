@@ -63,7 +63,7 @@
             // 
             this.abilityimg.BackColor = System.Drawing.Color.White;
             this.abilityimg.Location = new System.Drawing.Point(176, 28);
-            this.abilityimg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.abilityimg.Margin = new System.Windows.Forms.Padding(2);
             this.abilityimg.Name = "abilityimg";
             this.abilityimg.Size = new System.Drawing.Size(86, 80);
             this.abilityimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.modify_button);
             this.panel1.Controls.Add(this.deleter_button);
             this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 106);
             this.panel1.TabIndex = 9;
@@ -101,11 +101,12 @@
             this.modify_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modify_button.BackgroundImage")));
             this.modify_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.modify_button.Location = new System.Drawing.Point(147, 47);
-            this.modify_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modify_button.Margin = new System.Windows.Forms.Padding(2);
             this.modify_button.Name = "modify_button";
             this.modify_button.Size = new System.Drawing.Size(21, 22);
             this.modify_button.TabIndex = 1;
             this.modify_button.UseVisualStyleBackColor = true;
+            this.modify_button.Visible = false;
             this.modify_button.Click += new System.EventHandler(this.modify_button_Click);
             // 
             // deleter_button
@@ -113,11 +114,12 @@
             this.deleter_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleter_button.BackgroundImage")));
             this.deleter_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleter_button.Location = new System.Drawing.Point(147, 74);
-            this.deleter_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleter_button.Margin = new System.Windows.Forms.Padding(2);
             this.deleter_button.Name = "deleter_button";
             this.deleter_button.Size = new System.Drawing.Size(21, 23);
             this.deleter_button.TabIndex = 0;
             this.deleter_button.UseVisualStyleBackColor = true;
+            this.deleter_button.Visible = false;
             this.deleter_button.Click += new System.EventHandler(this.deleter_button_Click);
             // 
             // Usercard

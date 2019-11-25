@@ -18,6 +18,9 @@ namespace ModuloUsuarios
         public void Rolesaver(String role) {
             currentrole = role;
         }
+        public String Rolegetter() {
+            return currentrole;
+        }
         public void windowchoice(int win)
         {
             currentwindow = win;

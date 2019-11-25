@@ -15,6 +15,7 @@ namespace ModuloUsuarios
         private String name = "";
         private String type = "";
         private String password = "";
+        private String currentrole = "";
         private Display current;
 
         public Usercard(String aname, String atype, String pass, Display target)
@@ -24,6 +25,7 @@ namespace ModuloUsuarios
             type = atype;
             password = pass;
             current = target;
+           
             InitializeComponent();
         }
         public void fieldset(Usercard current) {
@@ -31,6 +33,13 @@ namespace ModuloUsuarios
             current.userrole.Text = type;
                 var replacer = new Bitmap(ModuloUsuarios.Properties.Resources.user);
                 current.abilityimg.Image = replacer;
+            Staticvartable role = new Staticvartable();
+            currentrole = role.Rolegetter();
+            if (currentrole.Equals("ADMIN"))
+            {
+                current.modify_button.Visible = true;
+                current.deleter_button.Visible = true;
+            }
         }
 
         private void Usercard_load(object sender, EventArgs e)

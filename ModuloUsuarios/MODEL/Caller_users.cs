@@ -13,6 +13,7 @@ namespace ModuloUsuarios
         public Boolean Loader(String user, String pass)
         {
             XmlTextReader reader = new XmlTextReader("C:\\DAM\\usuarios.xml");
+            Staticvartable roleput = new Staticvartable();
             Boolean valid = false;
             String element = "";
             String role = "";
@@ -26,7 +27,7 @@ namespace ModuloUsuarios
                     element = reader.Name; // the name of the current element
                     if (element == "usuario")
                     {
-                        reader.GetAttribute("rol");
+                        role = reader.GetAttribute("rol");
                     }
                 }
                 // reads the element value
@@ -42,7 +43,6 @@ namespace ModuloUsuarios
                             break;
                     }
                     if (name == user & passwd == pass) {
-                        Staticvartable roleput = new Staticvartable();
                         roleput.Rolesaver(role);
                         valid = true;
                     }
@@ -122,7 +122,7 @@ namespace ModuloUsuarios
             XmlNode root = userfile.DocumentElement;
             XmlNodeList userlist = ((XmlElement)users[0]).GetElementsByTagName("usuario");
             XmlElement target = userfile.CreateElement("usuario");
-            foreach (XmlElement node in userfile)
+            foreach (XmlElement node in userlist)
             {
                 //cabecera habil
                 if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(id)))
