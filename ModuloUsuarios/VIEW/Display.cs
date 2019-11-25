@@ -42,6 +42,7 @@ namespace ModuloUsuarios
         private String ability = "";
         private String image = "";
         private String biography = "";
+        private String document = "";
         private Display pointer;
         public Display()
         {
@@ -52,26 +53,31 @@ namespace ModuloUsuarios
         //chars
         public void charcardconstructor(Charcard card) {
             this.cardroster.Controls.Add(card);
+            document = "char";
         }
         //creatures
         public void creaturecardconstructor(Creaturecard card)
         {
             this.cardroster.Controls.Add(card);
+            document = "creature";
         }
         //items
         public void itemcardconstructor(Itemcard card)
         {
             this.cardroster.Controls.Add(card);
+            document = "item";
         }
         //abilities
         public void abilitycardconstructor(Abilitycard card)
         {
             this.cardroster.Controls.Add(card);
+            document = "ability";
         }
         //users
         public void usercardconstructor(Usercard card)
         {
             this.cardroster.Controls.Add(card);
+            document = "user";
         }
         //Carga de DETAILS
         //chars
@@ -280,6 +286,37 @@ namespace ModuloUsuarios
         private void Back_Click(object sender, EventArgs e)
         {
             Invoker.controller.Nexus();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Staticvartable checker = new Staticvartable();
+            //nuevo
+            if (document.Equals("user")) {
+                    checker.setmode("create");
+                    Invoker.controller.Usermodify("","","");
+            }
+            if (document.Equals("char"))
+            {
+                    checker.setmode("create");
+                    Invoker.controller.Charmodify("", "", "","","","","","","","","","","","","","","","","");
+            }
+            if (document.Equals("item"))
+            {
+                checker.setmode("create");
+                Invoker.controller.Itemmodify("","","","","","","","", "","","");
+            }
+            if (document.Equals("ability"))
+            {
+                checker.setmode("create");
+                Invoker.controller.Abilitymodify("", "", "", "", "", "", "","");
+            }
+            if (document.Equals("creature"))
+            {
+                checker.setmode("create");
+                Invoker.controller.Creaturemodify("", "", "", "", "", "", "", "","");
+            }
             this.Close();
         }
     }

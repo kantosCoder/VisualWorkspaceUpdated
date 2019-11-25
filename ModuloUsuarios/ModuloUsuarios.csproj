@@ -51,6 +51,12 @@
     <Compile Include="MODEL\Caller_abilities.cs" />
     <Compile Include="MODEL\Caller_characters.cs" />
     <Compile Include="MODEL\Caller_users.cs" />
+    <Compile Include="VIEW\Refresher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Refresher.Designer.cs">
+      <DependentUpon>Refresher.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="VIEW\Charcard.Designer.cs">
       <DependentUpon>Charcard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VIEW\Refresher.resx">
+      <DependentUpon>Refresher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>

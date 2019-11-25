@@ -12,6 +12,7 @@ namespace ModuloUsuarios
         private static String currentrole = "";
         private int currentwindow = 0;
         private Boolean engine = true;
+        private static String mode = "none";
 
         //SETTERS AND GETTERS
         public void Rolesaver(String role) {
@@ -27,7 +28,15 @@ namespace ModuloUsuarios
         }
         public int windowread() {
             return currentwindow;
-        } 
+        }
+        public void setmode(String amode)
+        {
+            mode = amode;
+        }
+        public String getmode()
+        {
+            return mode;
+        }
         //CONSTRUCTOR DEFAULT
         public Staticvartable() { 
         }

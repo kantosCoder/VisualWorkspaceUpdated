@@ -92,7 +92,7 @@ namespace ModuloUsuarios
 
             }
             //new node
-            XmlElement replacer = userfile.CreateElement("Habilidad");
+            XmlElement replacer = userfile.CreateElement("usuario");
             //cabecera habilidad
             replacer.SetAttribute("rol", arole);
             //atributos habilidad
