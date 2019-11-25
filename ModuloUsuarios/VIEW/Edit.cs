@@ -50,6 +50,7 @@ namespace ModuloUsuarios
         private String document = "";
         private String currentrole = "";
         private String mode = "";
+        private Boolean ableto = false;
         Staticvartable rolecheck = new Staticvartable();
         private Edit pointer;
         
@@ -454,6 +455,7 @@ namespace ModuloUsuarios
             if (document.Equals("char"))
             {
                 
+                
                 //insert popup to confirm?
                 //saves the data to the strings
                 name = pointer.namefield.Text;
@@ -474,17 +476,30 @@ namespace ModuloUsuarios
                 charism = pointer.charismfield.Text;
                 biography = pointer.biofield.Text;
                 image = pointer.imageedit.ImageLocation;
-                Staticvartable checker = new Staticvartable();
-                if (checker.getmode().Equals("modify"))
-                {
-                    Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "modify");
+                if (name.Equals("")||chrclass.Equals("")||race.Equals("") ||lvl.Equals("") ||life.Equals("") ||
+                    maxlife.Equals("") ||energy.Equals("") ||maxenergy.Equals("") ||xp.Equals("") ||max_xp.Equals("") ||
+                    gold.Equals("") ||force.Equals("") ||dexer.Equals("") ||body.Equals("") ||intel.Equals("") ||
+                    charism.Equals("")) {
+                    ableto = false;
                 }
-                if (checker.getmode().Equals("create"))
+                else
                 {
-                    checker.setmode("modify");
-                    Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "create");
+                    ableto = true;
                 }
-                Invoker.controller.Chars(false);
+                if (ableto == true)
+                {
+                    Staticvartable checker = new Staticvartable();
+                    if (checker.getmode().Equals("modify"))
+                    {
+                        Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "modify");
+                    }
+                    if (checker.getmode().Equals("create"))
+                    {
+                        checker.setmode("modify");
+                        Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "create");
+                    }
+                    Invoker.controller.Chars(false);
+                }
             }
             if (document.Equals("creature"))
             {
@@ -499,18 +514,25 @@ namespace ModuloUsuarios
                 maxlife = pointer.maxlifefield.Text;
                 biography = pointer.biofield.Text;
                 image = pointer.imageedit.ImageLocation;
-                Staticvartable checker = new Staticvartable();
-                if (checker.getmode().Equals("modify"))
-                {
-                    Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "modify");
+                if (name.Equals("") ||aversion.Equals("") ||damage.Equals("") ||lvl.Equals("") ||life.Equals("") ||maxlife.Equals("")) {
+                    ableto = false;
                 }
+                else { ableto = true; }
+                if (ableto == true)
+                {
+                    Staticvartable checker = new Staticvartable();
+                    if (checker.getmode().Equals("modify"))
+                    {
+                        Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "modify");
+                    }
 
-                if (checker.getmode().Equals("create"))
-                {
-                    checker.setmode("modify");
-                    Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "create");
+                    if (checker.getmode().Equals("create"))
+                    {
+                        checker.setmode("modify");
+                        Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "create");
+                    }
+                    Invoker.controller.Creatures();
                 }
-                Invoker.controller.Creatures();
             }
             if (document.Equals("ability"))
             {
@@ -524,18 +546,28 @@ namespace ModuloUsuarios
                 energy = pointer.energyfield.Text;
                 biography = pointer.biofield.Text;
                 image = pointer.imageedit.ImageLocation;
-                Staticvartable checker = new Staticvartable();
-                if (checker.getmode().Equals("modify"))
-                {
-                    Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "modify");
+                if (name.Equals("") ||type.Equals("") ||lvl.Equals("") ||life.Equals("") ||energy.Equals("")) {
+                    ableto = false;
                 }
+                else
+                {
+                    ableto = true;
+                }
+                if (ableto == true)
+                {
+                    Staticvartable checker = new Staticvartable();
+                    if (checker.getmode().Equals("modify"))
+                    {
+                        Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "modify");
+                    }
 
-                if (checker.getmode().Equals("create"))
-                {
-                    checker.setmode("modify");
-                    Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "create");
+                    if (checker.getmode().Equals("create"))
+                    {
+                        checker.setmode("modify");
+                        Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "create");
+                    }
+                    Invoker.controller.Abilities();
                 }
-                Invoker.controller.Abilities();
             }
             if (document.Equals("item"))
             {
@@ -551,17 +583,27 @@ namespace ModuloUsuarios
                 armor = lifefield.Text;
                 damage = experiencefield.Text;
                 ability = biofield.Text;
-                Staticvartable checker = new Staticvartable();
-                if (checker.getmode().Equals("modify"))
-                {
-                    Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "modify");
+                if(type.Equals("") ||value.Equals("") ||lvl.Equals("") ||name.Equals("") ||space.Equals("") ||weight.Equals("") ||
+                    armor.Equals("") || damage.Equals("")) {
+                    ableto = false;
                 }
-                if (checker.getmode().Equals("create"))
-                {
-                    checker.setmode("modify");
-                    Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "create");
+                else {
+                    ableto = true;
                 }
-                Invoker.controller.Items();
+                if (ableto == true)
+                {
+                    Staticvartable checker = new Staticvartable();
+                    if (checker.getmode().Equals("modify"))
+                    {
+                        Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "modify");
+                    }
+                    if (checker.getmode().Equals("create"))
+                    {
+                        checker.setmode("modify");
+                        Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "create");
+                    }
+                    Invoker.controller.Items();
+                }
             }
                 if (document.Equals("user"))
                 {
@@ -572,6 +614,20 @@ namespace ModuloUsuarios
                     oldpass = pointer.classfield.Text;
                     pass = pointer.racefield.Text;
                     role = levelfield.Text;
+                if(nick.Equals("") ||oldpass.Equals("") ||pass.Equals("") || role.Equals(""))
+                {
+                    ableto = false;
+                }
+                else
+                {
+                    ableto = true;
+                }
+                if (!(role.Equals("USER") || role.Equals("ADMIN") || role.Equals("MASTER"))) {
+                    ableto = false;
+                }
+                else { ableto = true; }
+                if (ableto == true)
+                {
                     Staticvartable checker = new Staticvartable();
                     if (checker.getmode().Equals("modify"))
                     {
@@ -582,9 +638,13 @@ namespace ModuloUsuarios
                         checker.setmode("modify");
                         Invoker.controller.Userwrite(role, nick, pass, oldpass, "create");
                     }
-                Invoker.controller.Users();
+                    Invoker.controller.Users();
+                }
             }
-            this.Close();
+            if (ableto == true)
+            {
+                this.Close();
+            }
         }
     }
 }

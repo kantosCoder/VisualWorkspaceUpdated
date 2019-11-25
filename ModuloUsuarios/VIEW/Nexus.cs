@@ -12,8 +12,12 @@ namespace ModuloUsuarios
 {
     public partial class Nexus : Form
     {
+        Staticvartable roleget = new Staticvartable();
+        String currentrole = "";
         public Nexus()
         {
+            currentrole = roleget.Rolegetter();
+            
             InitializeComponent();
         }
 
@@ -52,8 +56,12 @@ namespace ModuloUsuarios
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            Invoker.controller.Users();
-            this.Close();
+            if (!currentrole.Equals("USER"))
+            {
+                Invoker.controller.Users();
+                this.Close();
+            }
+            
         }
     }
 }

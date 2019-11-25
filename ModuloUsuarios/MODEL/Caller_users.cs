@@ -84,7 +84,7 @@ namespace ModuloUsuarios
             foreach (XmlElement node in userlist)
             {
                 //comprobar que no sea el ultimo admin
-                //cabecera habil
+                //cabecera users
                 if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(anick)))
                 {
                     replaced = node;
