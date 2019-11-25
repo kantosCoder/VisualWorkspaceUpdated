@@ -48,8 +48,16 @@ namespace ModuloUsuarios
         private String image = "";
         private String biography = "";
         private String document = "";
+        private String currentrole = "";
+        private String mode = "";
+        Staticvartable rolecheck = new Staticvartable();
         private Edit pointer;
-        public Edit() { 
+        
+        
+
+        public Edit() {
+            currentrole = rolecheck.Rolegetter();
+            mode = rolecheck.getmode();
             InitializeComponent();
         }
 
@@ -359,7 +367,14 @@ namespace ModuloUsuarios
             pointer.namefield.Text = nick;
             pointer.classfield.Text = "";
             pointer.racefield.Text = "";
-            pointer.classfield.PasswordChar = '*';
+            if (mode.Equals("modify"))
+            {
+                pointer.classfield.PasswordChar = '*';
+            }
+            else
+            {
+                pointer.classfield.Visible = false;
+            }
             pointer.racefield.PasswordChar = '*';
             pointer.levelfield.Text = role;
             pointer.lifefield.Visible = false;
@@ -379,7 +394,14 @@ namespace ModuloUsuarios
             pointer.nameofedition.Text = "Edicion de usuario: " + name;
             pointer.nameedit.Text = "Nombre";
             pointer.leveledit.Text = "Rol";
-            pointer.classedit.Text = "Antigua pass";
+            if (mode.Equals("modify"))
+            {
+                pointer.classedit.Text = "Antigua pass";
+            }
+            else
+            {
+                pointer.classedit.Text = "";
+            }
             pointer.raceedit.Text = "Nueva pass";
             pointer.lifeedit.Text = "";
             pointer.energyedit.Text = "";
@@ -398,6 +420,7 @@ namespace ModuloUsuarios
         //back to display
         private void Back_Click(object sender, EventArgs e)
         {
+            rolecheck.setmode("modify");
             if (document.Equals("char"))
             {
                 Invoker.controller.Chars(false);
@@ -427,7 +450,7 @@ namespace ModuloUsuarios
 
         private void savebutton_Click(object sender, EventArgs e)
         {
-            
+            rolecheck.setmode("modify");
             if (document.Equals("char"))
             {
                 Invoker.controller.Chars(true);

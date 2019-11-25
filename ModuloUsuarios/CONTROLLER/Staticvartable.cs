@@ -12,7 +12,7 @@ namespace ModuloUsuarios
         private static String currentrole = "";
         private int currentwindow = 0;
         private Boolean engine = true;
-        private static String mode = "none";
+        private static String mode = "modify";
 
         //SETTERS AND GETTERS
         public void Rolesaver(String role) {

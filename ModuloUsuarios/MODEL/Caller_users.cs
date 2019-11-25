@@ -108,6 +108,7 @@ namespace ModuloUsuarios
             root.AppendChild(replacer);
             if (mode.Equals("modify"))
             {
+                
                 //delete old node
                 root.RemoveChild(replaced);
             }
