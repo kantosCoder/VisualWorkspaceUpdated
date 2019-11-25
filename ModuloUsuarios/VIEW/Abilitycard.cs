@@ -66,6 +66,8 @@ namespace ModuloUsuarios
         private void deleter_button_Click(object sender, EventArgs e)
         {
             Invoker.controller.Abilitydestroy(ident);
+            Invoker.controller.Abilities();
+            current.Close();
         }
     }
 }

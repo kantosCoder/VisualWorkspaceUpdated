@@ -93,6 +93,8 @@ namespace ModuloUsuarios
         private void deleter_button_Click(object sender, EventArgs e)
         {
             Invoker.controller.Chardestroy(ident);
+            Invoker.controller.Chars(false);
+            current.Close();
         }
     }
 }

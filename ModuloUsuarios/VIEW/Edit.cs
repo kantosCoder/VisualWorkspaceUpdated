@@ -453,7 +453,7 @@ namespace ModuloUsuarios
             rolecheck.setmode("modify");
             if (document.Equals("char"))
             {
-                Invoker.controller.Chars(true);
+                
                 //insert popup to confirm?
                 //saves the data to the strings
                 name = pointer.namefield.Text;
@@ -484,10 +484,11 @@ namespace ModuloUsuarios
                     checker.setmode("modify");
                     Invoker.controller.Charrewrite(ident, name, chrclass, race, lvl, life, maxlife, energy, maxenergy, xp, max_xp, gold, force, dexer, body, intel, charism, image, biography, "create");
                 }
-                }
+                Invoker.controller.Chars(false);
+            }
             if (document.Equals("creature"))
             {
-                Invoker.controller.Creatures();
+                
                 //insert popup to confirm?
                 //saves the data to the strings
                 name = pointer.namefield.Text;
@@ -509,10 +510,11 @@ namespace ModuloUsuarios
                     checker.setmode("modify");
                     Invoker.controller.Creaturewrite(ident, name, lvl, aversion, life, maxlife, damage, image, biography, "create");
                 }
-                }
+                Invoker.controller.Creatures();
+            }
             if (document.Equals("ability"))
             {
-                Invoker.controller.Abilities();
+                
                 //insert popup to confirm?
                 //saves the data to the strings
                 name = pointer.namefield.Text;
@@ -533,10 +535,11 @@ namespace ModuloUsuarios
                     checker.setmode("modify");
                     Invoker.controller.Abilitywrite(ident, name, lvl, type, life, energy, image, biography, "create");
                 }
+                Invoker.controller.Abilities();
             }
             if (document.Equals("item"))
             {
-                Invoker.controller.Items();
+                
                 //insert popup to confirm?
                 //saves the data to the strings
                 type = classfield.Text;
@@ -558,10 +561,11 @@ namespace ModuloUsuarios
                     checker.setmode("modify");
                     Invoker.controller.Itemwrite(ident, type, value, lvl, name, space, weight, armor, damage, damagetype, ability, "create");
                 }
+                Invoker.controller.Items();
             }
                 if (document.Equals("user"))
                 {
-                    Invoker.controller.Users();
+                    
                     //insert popup to confirm?
                     //saves the data to the strings
                     nick = pointer.namefield.Text;
@@ -578,7 +582,8 @@ namespace ModuloUsuarios
                         checker.setmode("modify");
                         Invoker.controller.Userwrite(role, nick, pass, oldpass, "create");
                     }
-                }
+                Invoker.controller.Users();
+            }
             this.Close();
         }
     }

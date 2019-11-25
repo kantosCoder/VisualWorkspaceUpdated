@@ -69,7 +69,8 @@ namespace ModuloUsuarios
         private void deleter_button_Click(object sender, EventArgs e)
         {
             Invoker.controller.Creaturedestroy(ident);
-            //refresh... current.Close();
+            Invoker.controller.Creatures();
+            current.Close();
         }
     }
 }
