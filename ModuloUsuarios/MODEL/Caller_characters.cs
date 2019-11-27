@@ -59,17 +59,14 @@ namespace ModuloUsuarios.MODEL
             XmlNode root = charfile.DocumentElement;
             XmlNodeList charlist = ((XmlElement)chars[0]).GetElementsByTagName("Personaje");
             XmlElement replaced = charfile.CreateElement("Personaje");
+            mode = "create";
             foreach (XmlElement node in charlist)
             {
                 //cabecera pers
                 if ((node.GetAttribute("Id").Equals(id)))
                 {
                     replaced = node;
-
-                }
-                else
-                {
-                    mode = "create";
+                    mode = "modify";
                 }
 
             }

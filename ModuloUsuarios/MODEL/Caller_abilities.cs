@@ -46,17 +46,16 @@ namespace ModuloUsuarios.MODEL
             XmlNode root = skillfile.DocumentElement;
             XmlNodeList skilllist = ((XmlElement)skills[0]).GetElementsByTagName("Habilidad");
             XmlElement replaced = skillfile.CreateElement("Habilidad");
+            mode = "create";
             foreach (XmlElement node in skilllist)
             {
                 //cabecera habil
                 if ((node.GetAttribute("Id").Equals(id)))
                 {
                     replaced = node;
+                    mode = "modify";
                 }
-                else
-                {
-                    mode = "create";
-                }
+                    
 
             }
             //new node
@@ -65,8 +64,8 @@ namespace ModuloUsuarios.MODEL
             if (mode.Equals("create"))
             {
                 randomNumber = random.Next(10000, 999999);
-                String newid = randomNumber.ToString();
-                replacer.SetAttribute("Id", newid);
+                
+                replacer.SetAttribute("Id", randomNumber.ToString());
             }
             else
             {

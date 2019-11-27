@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModuloUsuarios.MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,10 +11,13 @@ namespace ModuloUsuarios
     {
         //CREO UN OBJETO GLOBAL CONTROLADOR PARA GENERAR TODAS LAS VENTANAS DESDE EL MISMO
         internal static Controller controller;
+        
 
         [STAThread]
         public static void Main()
         {
+            Preload checker = new Preload();
+            checker.checker();
             //Punto de entrada de la aplicación
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

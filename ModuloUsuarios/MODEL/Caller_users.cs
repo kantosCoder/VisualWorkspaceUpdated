@@ -82,6 +82,7 @@ namespace ModuloUsuarios
             XmlNodeList userlist = ((XmlElement)users[0]).GetElementsByTagName("usuario");
             XmlElement replaced = userfile.CreateElement("usuario");
             //comprobar que la oldpass es buena popup que no y retorno
+            mode = "create";
             foreach (XmlElement node in userlist)
             {
                 //comprobar que no sea el ultimo admin
@@ -89,9 +90,8 @@ namespace ModuloUsuarios
                 if ((node.GetElementsByTagName("nickname")[0].InnerText.Equals(anick)))
                 {
                     replaced = node;
-                    
+                    mode = "modify";
                 }
-                else { mode = "create"; }
 
             }
             //new node

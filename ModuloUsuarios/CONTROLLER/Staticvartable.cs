@@ -11,6 +11,7 @@ namespace ModuloUsuarios
     {
         private static String currentrole = "";
         private int currentwindow = 0;
+        private int loginattemp = 0;
         private Boolean engine = true;
         private static String mode = "modify";
 
@@ -39,6 +40,18 @@ namespace ModuloUsuarios
         public String getmode()
         {
             return mode;
+        }
+        public void badlogin()
+        {
+            loginattemp++;
+        }
+        public int getbadlogin()
+        {
+            return loginattemp;
+        }
+        public void resetlogin()
+        {
+            loginattemp = 0;
         }
         //CONSTRUCTOR DEFAULT
         public Staticvartable() { 

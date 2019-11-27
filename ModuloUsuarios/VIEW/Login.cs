@@ -22,10 +22,21 @@ namespace ModuloUsuarios
         private void Button1_Click(object sender, EventArgs e)
         {
             Boolean usercheck = checker.Loader(this.userField.Text,this.passField.Text);
-            if (usercheck == true) {
+            if (usercheck == true)
+            {
+                window.resetlogin();
                 Invoker.controller.Nexus();
                 this.Close();
             }
+            else {
+                window.badlogin();
+            }
+            if (window.getbadlogin()==3)
+            {
+                Application.Exit();
+            }
+
+
         }
 
         private void Userwindow_Load(object sender, EventArgs e)

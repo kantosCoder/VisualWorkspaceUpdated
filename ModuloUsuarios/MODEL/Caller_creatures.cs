@@ -46,19 +46,15 @@ namespace ModuloUsuarios.MODEL
             XmlNode root = creaturefile.DocumentElement;
             XmlNodeList charlist = ((XmlElement)creatures[0]).GetElementsByTagName("Criatura");
             XmlElement replaced = creaturefile.CreateElement("Criatura");
+            mode = "create";
             foreach (XmlElement node in charlist)
             {
                 //cabecera pers
                 if ((node.GetAttribute("Id").Equals(id)))
                 {
                     replaced = node;
-
+                    mode = "modify";
                 }
-                else
-                {
-                    mode = "create";
-                }
-
             }
             //new node
             XmlElement replacer = creaturefile.CreateElement("Criatura");

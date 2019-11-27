@@ -49,16 +49,14 @@ namespace ModuloUsuarios.MODEL
             XmlNode root = itemfile.DocumentElement;
             XmlNodeList itemlist = ((XmlElement)items[0]).GetElementsByTagName("Item");
             XmlElement replaced = itemfile.CreateElement("Item");
+            mode = "create";
             foreach (XmlElement node in itemlist)
             {
                 //cabecera item
                 if ((node.GetElementsByTagName("Id")[0].InnerText.Equals(id)))
                 {
                     replaced = node;
-                }
-                else
-                {
-                    mode = "create";
+                    mode = "modify";
                 }
 
             }

@@ -51,6 +51,7 @@
     <Compile Include="MODEL\Caller_abilities.cs" />
     <Compile Include="MODEL\Caller_characters.cs" />
     <Compile Include="MODEL\Caller_users.cs" />
+    <Compile Include="MODEL\Preload.cs" />
     <Compile Include="VIEW\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
